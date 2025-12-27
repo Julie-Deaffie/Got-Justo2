@@ -23,12 +23,22 @@
     <meta name="twitter:image" content="https://gotjusto.netlify.app/images/mainimage.png">
 
     <!-- Google Font Import for Cyber/Digital Theme - MUST BE BEFORE style.css -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline id="bgVideo">
+            <source src="background.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+
     <div class="app-container">
         <header class="app-header">
             <h1>GotJusto? Subscription Pricing</h1>
