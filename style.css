@@ -2,7 +2,9 @@
 
 /* Basic Resets and Body Styling */
 body {
-    font-family: 'Share Tech Mono', monospace; /* Monospace for digital feel */
+    font-family: "Asimovian", sans-serif; /* Asimovian for general text */
+    font-weight: 400;
+    font-style: normal;
     background-color: #1a1a2e; /* Dark, deep background */
     margin: 0;
     padding: 20px;
@@ -48,8 +50,10 @@ body {
 .app-header h1 {
     margin: 0;
     font-size: 1.6em;
-    font-weight: normal; /* Monospace fonts often look better without bold */
+    font-weight: 400;
+    font-style: normal;
     letter-spacing: 2px;
+    font-family: "Boldonse", system-ui;
 }
 
 /* Section Headings */
@@ -58,11 +62,13 @@ h2 {
     color: #ffffff; /* White for section headings */
     margin-top: 25px;
     margin-bottom: 15px;
-    font-weight: normal;
+    font-weight: 400;
+    font-style: normal;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     position: relative;
     padding-bottom: 8px;
+    font-family: "Boldonse", system-ui;
 }
 
 h2::after { /* Underline effect with glow */
@@ -99,7 +105,9 @@ h2::after { /* Underline effect with glow */
     min-width: 80px;
     text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
     box-shadow: inset 0 0 5px rgba(0, 240, 255, 0.2);
-    font-family: 'Share Tech Mono', monospace; /* Ensure buttons use the digital font */
+    font-family: "Asimovian", sans-serif; /* Asimovian for buttons */
+    font-weight: 400;
+    font-style: normal;
 }
 
 .option-button:hover, .add-on-checkbox label:hover {
@@ -139,6 +147,9 @@ h2::after { /* Underline effect with glow */
     align-items: center;
     transition: background-color 0.2s, box-shadow 0.2s;
     box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+    font-family: "Asimovian", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .user-button:hover {
@@ -308,10 +319,12 @@ h2::after { /* Underline effect with glow */
     margin-top: 25px;
     width: 100%;
     max-width: 250px;
-    font-weight: normal;
+    font-weight: 400;
+    font-style: normal;
     letter-spacing: 1px;
     text-shadow: none; /* Remove default text shadow */
     box-shadow: 0 0 15px rgba(57, 255, 20, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+    font-family: "Asimovian", sans-serif;
 }
 
 .main-button:hover {
@@ -429,6 +442,9 @@ h2::after { /* Underline effect with glow */
     margin-bottom: 15px;
     letter-spacing: 1.5px;
     text-shadow: 0 0 10px #ffffff;
+    font-family: "Boldonse", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .modal-content p {
