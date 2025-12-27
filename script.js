@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         noAddOnsMessage.style.display = 'none';
 
-        productAddOns.forEach(addOn => {
+        productAddOns.forEach((addOn, index) => {
             const addOnDiv = document.createElement('div');
             addOnDiv.classList.add('add-on-checkbox');
 
@@ -167,7 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const label = document.createElement('label');
             label.htmlFor = `addon_${addOn.id}`;
-            label.textContent = `${addOn.name} ($${(ADDON_COST_PER_USER_PER_MONTH * selectedDurationMonths).toFixed(2)}/user for duration)`;
+            const priceForDuration = (ADDON_COST_PER_USER_PER_MONTH * selectedDurationMonths).toFixed(2);
+            label.textContent = `Addon ${index + 1} ($${priceForDuration} for duration)`;
 
             const checkmark = document.createElement('span');
             checkmark.classList.add('checkmark');
@@ -258,7 +259,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const label = document.createElement('label');
         label.htmlFor = `addon_${prefix}${addOn.id}`;
-        label.textContent = `${addOn.name} ($${(ADDON_COST_PER_USER_PER_MONTH * selectedDurationMonths).toFixed(2)}/user for duration)`;
+        const priceForDuration = (ADDON_COST_PER_USER_PER_MONTH * selectedDurationMonths).toFixed(2);
+        label.textContent = `${addOn.name} ($${priceForDuration} for duration)`;
 
         const checkmark = document.createElement('span');
         checkmark.classList.add('checkmark');
@@ -362,13 +364,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     addlUserCostDisplay = pricing['A'].additionalUserCostPerDuration[duration] +
                                           pricing['B'].additionalUserCostPerDuration[duration];
-                    availableAddOnsDisplay = 'From A: Adult, 24/7, Low BW | From B: Adult, 24/7 (mutually exclusive)';
+                    availableAddOnsDisplay = 'Addon 1, Addon 2, Addon 3';
                 } else {
                     oneUserPrice = pricing[productKey].basePrices[duration];
                     addlUserCostDisplay = pricing[productKey].additionalUserCostPerDuration[duration];
 
                     if (pricing[productKey].addOns && pricing[productKey].addOns.length > 0) {
-                        availableAddOnsDisplay = pricing[productKey].addOns.map(ao => ao.name).join(', ');
+                        availableAddOnsDisplay = pricing[productKey].addOns.map((ao, idx) => `Addon ${idx + 1}`).join(', ');
                     }
                 }
 
