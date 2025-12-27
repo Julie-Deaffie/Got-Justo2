@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Price Calculator</title>
+
+    <!-- Open Graph / Discord Embed Tags -->
+    <!-- IMPORTANT: You'll update the og:image and og:url paths later -->
+    <meta property="og:title" content="Subscription Price Calculator">
+    <meta property="og:description" content="Instantly calculate prices for Product A, B, and C subscriptions based on duration and users.">
+    <!-- Replace with the URL of your actual preview image once hosted -->
+    <meta property="og:image" content="https://example.com/images/subscription-calculator-preview.png">
+    <!-- Replace with the final URL of your hosted app -->
+    <meta property="og:url" content="https://example.com/subscription-calculator">
+    <meta property="og:type" content="website">
+
+    <!-- Optional: Twitter Card Tags (for Twitter, but good practice) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Subscription Price Calculator">
+    <meta name="twitter:description" content="Instantly calculate prices for Product A, B, and C subscriptions based on duration and users.">
+    <!-- Replace with the URL of your actual preview image once hosted -->
+    <meta name="twitter:image" content="https://example.com/images/subscription-calculator-preview.png">
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Subscription Price Calculator</h1>
+        </header>
+
+        <section class="product-selection">
+            <h2>Choose a Product</h2>
+            <div class="options-group" id="productOptions">
+                <button class="option-button" data-product="A">Product A</button>
+                <button class="option-button" data-product="B">Product B</button>
+                <button class="option-button" data-product="C">Product C</button>
+            </div>
+        </section>
+
+        <section class="duration-selection">
+            <h2>Choose Duration</h2>
+            <div class="options-group" id="durationOptions">
+                <button class="option-button" data-duration="1">1 Month</button>
+                <button class="option-button" data-duration="3">3 Months</button>
+                <button class="option-button" data-duration="6">6 Months</button>
+                <button class="option-button" data-duration="12">12 Months</button>
+            </div>
+        </section>
+
+        <section class="users-selection">
+            <h2>Number of Users (Max 5)</h2>
+            <div class="users-input-group">
+                <button id="decrementUsers" class="user-button">-</button>
+                <input type="number" id="numUsers" value="1" min="1" max="5">
+                <button id="incrementUsers" class="user-button">+</button>
+            </div>
+            <input type="range" id="usersSlider" min="1" max="5" value="1">
+            <span id="usersDisplay">1 User(s)</span>
+        </section>
+
+        <!-- New Section for Add-ons -->
+        <section class="add-ons-selection">
+            <h2>Select Add-ons (Optional)</h2>
+            <div class="add-ons-group" id="addOnsGroup">
+                <!-- Add-ons will be dynamically inserted here by JavaScript -->
+                <p class="no-add-ons-message">Select a product to see available add-ons.</p>
+            </div>
+        </section>
+
+        <section class="calculation-result">
+            <button id="calculatePriceButton" class="main-button">Calculate Price</button>
+            <p class="estimated-price">Estimated Price: <span id="displayPrice">$0.00</span></p>
+            <p><a href="#" id="viewFullPricelistLink">View Full Pricelist</a></p>
+        </section>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
+

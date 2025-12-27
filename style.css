@@ -1,0 +1,421 @@
+```css
+/* --- Cyber/Digital Theme --- */
+
+/* Basic Resets and Body Styling */
+body {
+    font-family: 'Share Tech Mono', monospace; /* Monospace for digital feel */
+    background-color: #1a1a2e; /* Dark, deep background */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #00f0ff; /* Bright cyan for primary text/glow */
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5); /* Subtle text glow */
+}
+
+/* Import a digital-style font from Google Fonts (add this to your <head> in index.html too!) */
+/* For testing, you can put this @import directly in CSS, but for production, link in HTML <head> */
+/*
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+*/
+
+
+/* App Container */
+.app-container {
+    background-color: #0d0d1e; /* Even darker background for the main card */
+    border: 2px solid #00f0ff; /* Glowing cyan border */
+    border-radius: 8px; /* Sharper edges */
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), /* Outer glow */
+                inset 0 0 10px rgba(0, 240, 255, 0.2); /* Inner glow */
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    position: relative; /* For potential future animated elements */
+    overflow: hidden; /* Keep glows within bounds */
+}
+
+/* Header */
+.app-header {
+    background-color: #00f0ff1a; /* Semi-transparent cyan */
+    border-bottom: 1px solid #00f0ff;
+    color: #ffffff; /* White text on header */
+    padding: 15px 0;
+    margin: -30px -30px 30px -30px;
+    border-top-left-radius: 6px; /* Match container border-radius slightly */
+    border-top-right-radius: 6px;
+    text-shadow: 0 0 10px #ffffff; /* White glow for header text */
+    box-shadow: inset 0 -5px 15px rgba(0, 240, 255, 0.2);
+}
+
+.app-header h1 {
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: normal; /* Monospace fonts often look better without bold */
+    letter-spacing: 2px;
+}
+
+/* Section Headings */
+h2 {
+    font-size: 1.1em;
+    color: #ffffff; /* White for section headings */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+h2::after { /* Underline effect with glow */
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 1px;
+    background-color: #00f0ff;
+    box-shadow: 0 0 8px #00f0ff;
+}
+
+/* Options Groups (Product & Duration) */
+.options-group, .add-ons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.option-button, .add-on-checkbox label { /* Apply base style to add-on labels too */
+    background-color: #2a003a; /* Dark purple/blue base */
+    color: #00f0ff;
+    border: 1px solid #00f0ff;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    flex: 1 1 auto;
+    min-width: 80px;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+    box-shadow: inset 0 0 5px rgba(0, 240, 255, 0.2);
+    font-family: 'Share Tech Mono', monospace; /* Ensure buttons use the digital font */
+}
+
+.option-button:hover, .add-on-checkbox label:hover {
+    background-color: #3f005a; /* Lighter purple on hover */
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.6), inset 0 0 8px rgba(0, 240, 255, 0.4);
+    transform: translateY(-2px); /* Slight lift */
+}
+
+.option-button.selected, .add-on-checkbox.selected label {
+    background-color: #00f0ff; /* Bright cyan when selected */
+    color: #1a1a2e; /* Dark text on selected */
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.8), inset 0 0 10px #ffffff;
+    text-shadow: none; /* Remove text shadow on selected for contrast */
+}
+
+/* Users Input Group */
+.users-input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.user-button {
+    background-color: #005f7a; /* Darker blue */
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    width: 38px;
+    height: 38px;
+    font-size: 1.4em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.user-button:hover {
+    background-color: #007a99;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+}
+
+#numUsers {
+    width: 50px; /* Slightly narrower */
+    padding: 8px;
+    background-color: #0d0d1e;
+    color: #00f0ff;
+    border: 1px solid #00f0ff;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1.1em;
+    -moz-appearance: textfield;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+#numUsers::-webkit-outer-spin-button,
+#numUsers::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Slider for Users */
+#usersSlider {
+    width: 80%;
+    margin: 10px auto;
+    -webkit-appearance: none;
+    height: 5px; /* Thinner slider track */
+    background: #00f0ff55; /* Semi-transparent cyan track */
+    outline: none;
+    opacity: 0.8;
+    transition: opacity .2s;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+#usersSlider:hover {
+    opacity: 1;
+}
+
+#usersSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px; /* Slightly smaller thumb */
+    height: 18px;
+    border-radius: 50%;
+    background: #00f0ff;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00f0ff; /* Stronger thumb glow */
+    border: 2px solid #ffffff;
+    margin-top: -6.5px; /* Adjust vertical position */
+}
+
+#usersSlider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #00f0ff;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00f0ff;
+    border: 2px solid #ffffff;
+}
+
+#usersDisplay {
+    display: block;
+    margin-top: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+
+/* Add-ons styling */
+.add-on-checkbox {
+    display: flex; /* Use flex to align checkbox and label */
+    align-items: center;
+    justify-content: center; /* Center the content within the flex item */
+    gap: 8px; /* Space between custom checkbox and text */
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    flex: 1 1 auto;
+    min-width: 120px;
+    text-align: left; /* Keep text aligned left within the label */
+}
+
+.add-on-checkbox input {
+    position: absolute; /* Hide actual checkbox */
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Custom Checkbox Appearance */
+.add-on-checkbox .checkmark {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: #2a003a;
+    border: 1px solid #00f0ff;
+    border-radius: 3px;
+    transition: all 0.2s;
+    flex-shrink: 0; /* Prevent checkmark from shrinking */
+    box-shadow: inset 0 0 5px rgba(0, 240, 255, 0.2);
+}
+
+/* On hover */
+.add-on-checkbox:hover .checkmark {
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.6), inset 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* When checkbox is checked */
+.add-on-checkbox input:checked ~ .checkmark {
+    background-color: #00f0ff;
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.8), inset 0 0 8px #ffffff;
+}
+
+/* Create the checkmark (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.add-on-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark */
+.add-on-checkbox .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #1a1a2e; /* Dark checkmark */
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.add-ons-selection p {
+    color: #777;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+
+/* Main Calculate Button */
+.main-button {
+    background-color: #39ff14; /* Neon green for main action */
+    color: #1a1a2e; /* Dark text on green */
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s;
+    margin-top: 25px;
+    width: 100%;
+    max-width: 250px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    text-shadow: none; /* Remove default text shadow */
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.main-button:hover {
+    background-color: #2ecf0e; /* Slightly darker green on hover */
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.8), inset 0 0 15px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Price Display */
+.estimated-price {
+    font-size: 1.8em; /* Larger price */
+    font-weight: normal;
+    color: #ffffff; /* White for "Estimated Price" */
+    margin-top: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+#displayPrice {
+    color: #39ff14; /* Neon green for the actual price */
+    text-shadow: 0 0 15px rgba(57, 255, 20, 0.8); /* Stronger glow */
+}
+
+/* Full Pricelist Link */
+#viewFullPricelistLink {
+    color: #00f0ff;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.2s, text-shadow 0.2s;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+
+#viewFullPricelistLink:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .app-header {
+        margin: -20px -20px 20px -20px;
+    }
+    h1 {
+        font-size: 1.3em;
+    }
+    h2 {
+        font-size: 1em;
+    }
+    .option-button, .add-on-checkbox label {
+        padding: 8px 10px;
+        font-size: 0.85em;
+        min-width: unset; /* Allow smaller width on small screens */
+    }
+    .main-button {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    .estimated-price {
+        font-size: 1.5em;
+    }
+}
+```
+
+### Important Step for the Font:
+
+To fully enable the "Share Tech Mono" font, you need to add a line to the `<head>` section of your `index.html` file. This should go *before* your `link rel="stylesheet"` line:
+
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Price Calculator</title>
+
+    <!-- Open Graph / Discord Embed Tags (keep these as they are for now) -->
+    <meta property="og:title" content="Subscription Price Calculator">
+    <meta property="og:description" content="Instantly calculate prices for Product A, B, and C subscriptions based on duration and users.">
+    <meta property="og:image" content="https://example.com/images/subscription-calculator-preview.png">
+    <meta property="og:url" content="https://example.com/subscription-calculator">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Subscription Price Calculator">
+    <meta name="twitter:description" content="Instantly calculate prices for Product A, B, and C subscriptions based on duration and users.">
+    <meta name="twitter:image" content="https://example.com/images/subscription-calculator-preview.png">
+
+    <!-- Google Font Import for Cyber/Digital Theme -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+```
+
