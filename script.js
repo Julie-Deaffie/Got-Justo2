@@ -128,7 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+```
 
+---
+
+**Block 3: Helper Functions (`calculatePrice` and `displayFullPricelist`)**
+
+```javascript
     // Main price calculation logic
     function calculatePrice() {
         if (!selectedProduct || !selectedDurationMonths || numUsers < 1) {
@@ -268,8 +274,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         modal.style.display = 'flex'; // Show the modal
     }
+```
 
+---
 
+**Block 4: Event Listeners and Initial Setup**
+
+```javascript
     // --- Event Listeners ---
 
     // Product Selection
@@ -357,107 +368,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // durationOptions.children[0].click(); // Select 1 Month
 });
 ```
-
-### New CSS for the Pricelist Modal (Add this to your `style.css` file)
-
-Since we've replaced the `alert()` with a proper modal for the full pricelist, you need to add styling for it. Append this CSS to your `style.css` file:
-
-```css
-/* --- Modal for Full Pricelist --- */
-.modal-overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    backdrop-filter: blur(5px); /* Frosted glass effect */
-}
-
-.modal-content {
-    background-color: #0d0d1e;
-    border: 2px solid #00f0ff;
-    border-radius: 8px;
-    box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
-    padding: 30px;
-    margin: 20px; /* Space from edges */
-    max-width: 600px;
-    width: 90%;
-    position: relative;
-    color: #00f0ff;
-    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
-    text-align: left; /* Align modal content text left */
-}
-
-.modal-content h3 {
-    text-align: center;
-    color: #ffffff;
-    font-size: 1.4em;
-    margin-top: 0;
-    margin-bottom: 15px;
-    letter-spacing: 1.5px;
-    text-shadow: 0 0 10px #ffffff;
-}
-
-.modal-content p {
-    text-align: center;
-}
-
-.modal-overlay .close-button {
-    color: #ffffff;
-    font-size: 2.5em;
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    cursor: pointer;
-    transition: color 0.2s, text-shadow 0.2s;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-}
-
-.modal-overlay .close-button:hover,
-.modal-overlay .close-button:focus {
-    color: #00f0ff;
-    text-shadow: 0 0 15px #00f0ff;
-}
-
-/* Pricelist Table Styling */
-.pricelist-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-size: 0.9em;
-    color: #ffffff; /* Table text color */
-}
-
-.pricelist-table th,
-.pricelist-table td {
-    border: 1px solid #00f0ff66; /* Lighter cyan border for table cells */
-    padding: 10px;
-    text-align: left;
-    text-shadow: none; /* Remove text shadow for table content */
-}
-
-.pricelist-table thead th {
-    background-color: #00f0ff1a; /* Semi-transparent cyan header */
-    color: #00f0ff;
-    text-transform: uppercase;
-    font-weight: normal;
-    letter-spacing: 1px;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
-}
-
-.pricelist-table tbody tr:nth-child(even) {
-    background-color: rgba(0, 240, 255, 0.05); /* Subtle stripe for readability */
-}
-
-.pricelist-table tbody tr:hover {
-    background-color: rgba(0, 240, 255, 0.15); /* Hover effect for rows */
-}
-```
-
