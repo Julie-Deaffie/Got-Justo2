@@ -22,8 +22,10 @@
     <!-- Replace with the URL of your actual preview image once hosted -->
     <meta name="twitter:image" content="https://gotjusto.netlify.app/images/mainimage.png">
 
-    <!-- Google Font Import for Cyber/Digital Theme - MUST BE BEFORE style.css -->
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <!-- Google Font Imports - MUST BE BEFORE style.css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Boldonse&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <!-- Link to your CSS file -->
     <link rel="stylesheet" href="style.css">
@@ -40,25 +42,28 @@
                 <button class="option-button" data-product="A">IPTV</button>
                 <button class="option-button" data-product="B">Video on Demand</button>
                 <button class="option-button" data-product="C">IPTV & VOD</button>
+                <button type="button" class="option-button" data-product="A">Product A</button>
+                <button type="button" class="option-button" data-product="B">Product B</button>
+                <button type="button" class="option-button" data-product="C">Product C</button>
             </div>
         </section>
 
         <section class="duration-selection">
             <h2>Length of Subscription</h2>
             <div class="options-group" id="durationOptions">
-                <button class="option-button" data-duration="1">1 Month</button>
-                <button class="option-button" data-duration="3">3 Months</button>
-                <button class="option-button" data-duration="6">6 Months</button>
-                <button class="option-button" data-duration="12">12 Months</button>
+                <button type="button" class="option-button" data-duration="1">1 Month</button>
+                <button type="button" class="option-button" data-duration="3">3 Months</button>
+                <button type="button" class="option-button" data-duration="6">6 Months</button>
+                <button type="button" class="option-button" data-duration="12">12 Months</button>
             </div>
         </section>
 
         <section class="users-selection">
             <h2>Number of Connections (Max 5)</h2>
             <div class="users-input-group">
-                <button id="decrementUsers" class="user-button">-</button>
+                <button type="button" id="decrementUsers" class="user-button">-</button>
                 <input type="number" id="numUsers" value="1" min="1" max="5">
-                <button id="incrementUsers" class="user-button">+</button>
+                <button type="button" id="incrementUsers" class="user-button">+</button>
             </div>
             <input type="range" id="usersSlider" min="1" max="5" value="1">
             <span id="usersDisplay">1 Connection(s)</span>
@@ -75,6 +80,8 @@
 
         <section class="calculation-result">
             <p class="estimated-price">Price in USD: <span id="displayPrice">$0.00</span></p>
+            <p class="estimated-price">Estimated Price: <span id="displayPrice">$0.00</span></p>
+            <p class="price-disclaimer">Prices are in USD and current as of 27/12/2025</p>
             <p><a href="#" id="viewFullPricelistLink">View Full Pricelist</a></p>
         </section>
     </div>
