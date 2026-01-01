@@ -1,7 +1,4 @@
-``css
-/* --- Cyber/Digital Theme --- */
 
-/* Basic Resets and Body Styling */
 body {
     font-family: 'Syncopate', sans-serif; /* Syncopate for body text */
     background-color: #1a1a2e; /* Dark, deep background */
@@ -89,7 +86,7 @@ body {
 
 .app-header h1 {
     margin: 0;
-    font-family: "Sixtyfour Convergence", sans-serif;
+    font-family: "Syncopate", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
@@ -401,6 +398,7 @@ h2::after { /* Underline effect with glow */
 }
 
 /* Responsive adjustments */
+
 @media (max-width: 768px) {
     body {
         padding: 15px;
@@ -571,7 +569,7 @@ h2::after { /* Underline effect with glow */
 }
 
 .modal-content h3 {
-    font-family: "Sixtyfour Convergence", sans-serif;
+    font-family: "Syncopate", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
