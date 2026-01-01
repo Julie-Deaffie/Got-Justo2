@@ -54,14 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 12: 72  // 12 months: $72 total
             },
             // Cost per *additional* user for the specified duration
-            // Let's derive these based on your initial 50c/user/month for now, if list not provided.
-            // If you have a separate list for B, please provide it.
             additionalUserCostPerDuration: {
-                 1: (1 * 0.50), // 50c per month per additional user
-                 3: (3 * 0.50), // 50c per month per additional user
-                 6: (6 * 0.50), // 50c per month per additional user
-                 12: (12 * 0.50) // 50c per month per additional user
+                1: 2.50,  // $3.00 per additional user for 1 month
+                3: 10.00,  // $8.00 per additional user for 3 months
+                6: 15.00, // $15.00 per additional user for 6 months
+                12: 30.00 // $30.00 per additional user for 12 months
             },
+            addOns: [
             addOns: [
                 { id: 'common_addon1', name: '24/7' },
                 { id: 'common_addon2', name: 'Adult' } // Moved Adult to common for B as per your description
