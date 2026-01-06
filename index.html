@@ -3,63 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Got Justo? Subscription Price Calculator</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+    <title>Subscription Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="video-background">
-        <video autoplay muted loop playsinline id="bgVideo">
-            <source src="background.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
-    </div>
-
-    <div class="app-container">
-        <header class="app-header">
-            <h1>GotJusto? Pricing</h1>
+    <div class="container">
+        <header>
+            <h1>Service Calculator</h1>
         </header>
 
-        <section class="product-selection">
-            <h2>Choose Your Service(s)</h2>
-            <div class="options-group" id="productOptions">
-                <button class="option-button" data-product="A">IPTV</button>
-                <button class="option-button" data-product="B">VOD</button>
-                <button class="option-button" data-product="C">IPTV & VOD</button>
+        <section>
+            <h3>Select Service</h3>
+            <div id="productOptions" class="btn-group">
+                <button data-product="A">IPTV</button>
+                <button data-product="B">VOD</button>
+                <button data-product="C">IPTV & VOD</button>
             </div>
         </section>
 
-        <section class="duration-selection">
-            <h2>Length of Subscription</h2>
-            <div class="options-group" id="durationOptions">
-                <button class="option-button" data-duration="1">1 Month</button>
-                <button class="option-button" data-duration="3">3 Months</button>
-                <button class="option-button" data-duration="6">6 Months</button>
-                <button class="option-button" data-duration="12">12 Months</button>
+        <section>
+            <h3>Duration</h3>
+            <div id="durationOptions" class="btn-group">
+                <button data-duration="1">1 Month</button>
+                <button data-duration="3">3 Months</button>
+                <button data-duration="6">6 Months</button>
+                <button data-duration="12">12 Months</button>
             </div>
         </section>
 
-        <section class="users-selection">
-            <h2>Connections (Max 5 each)</h2>
+        <section>
+            <h3>Connections</h3>
             <div id="connectionInputsContainer">
                 </div>
         </section>
 
-        <section class="add-ons-selection">
-            <h2>IPTV Add-ons (Optional)</h2>
-            <div class="add-ons-group" id="addOnsGroup">
-                <p class="no-add-ons-message">Select a product to see available add-ons.</p>
-            </div>
+        <section>
+            <h3>Add-ons</h3>
+            <div id="addOnsGroup" class="add-ons-list">
+                </div>
         </section>
 
-        <section class="calculation-result">
-            <p class="estimated-price">Price in USD: <span id="displayPrice">$0.00</span></p>
-            <div class="result-actions">
-                <button id="resetButton" class="option-button reset-btn">Reset Calculator</button>
-                <p><a href="#" id="viewFullPricelistLink">View Full Pricelist</a></p>
-            </div>
+        <section class="result-area">
+            <h2>Total: <span id="displayPrice">$0.00</span></h2>
+            <button id="resetButton">Reset All</button>
+            <p><a href="#" id="viewFullPricelistLink">View Full Pricelist</a></p>
         </section>
     </div>
     <script src="script.js"></script>
