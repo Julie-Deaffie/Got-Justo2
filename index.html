@@ -1,30 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Got Justo? Subscription Price Calculator</title>
-
-    <!-- Open Graph / Discord Embed Tags -->
-    <meta property="og:title" content="Got Justo? Subscription Prices">
-    <meta property="og:description" content="Calculate Prices for IPTV and VOD Subscriptions.">
-    <!-- Replace with the URL of your actual preview image once hosted -->
-    <meta property="og:image" content="https://gotjusto.netlify.app/mainimage.png">
-    <!-- Replace with the final URL of your hosted app -->
-    <meta property="og:url" content="https://gotjusto.netlify.app">
-    <meta property="og:type" content="website">
-
-    <!-- Google Font Import for Cyber/Digital Theme - MUST BE BEFORE style.css -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Video Background -->
     <div class="video-background">
         <video autoplay muted loop playsinline id="bgVideo">
             <source src="background.mp4" type="video/mp4">
@@ -34,14 +19,14 @@
 
     <div class="app-container">
         <header class="app-header">
-            <h1>GotJusto? Subscription Pricing</h1>
+            <h1>GotJusto? Pricing</h1>
         </header>
 
         <section class="product-selection">
             <h2>Choose Your Service(s)</h2>
             <div class="options-group" id="productOptions">
                 <button class="option-button" data-product="A">IPTV</button>
-                <button class="option-button" data-product="B">Video on Demand</button>
+                <button class="option-button" data-product="B">VOD</button>
                 <button class="option-button" data-product="C">IPTV & VOD</button>
             </div>
         </section>
@@ -57,34 +42,26 @@
         </section>
 
         <section class="users-selection">
-            <h2>Number of Connections (Max 5)</h2>
-            <div class="users-input-group">
-                <button id="decrementUsers" class="user-button">-</button>
-                <input type="number" id="numUsers" value="1" min="1" max="5">
-                <button id="incrementUsers" class="user-button">+</button>
-            </div>
-            <input type="range" id="usersSlider" min="1" max="5" value="1">
-            <span id="usersDisplay">1 Connection(s)</span>
+            <h2>Connections (Max 5 each)</h2>
+            <div id="connectionInputsContainer">
+                </div>
         </section>
 
-        <!-- New Section for Add-ons -->
         <section class="add-ons-selection">
-            <h2>Select Your Add-ons (Optional)</h2>
+            <h2>IPTV Add-ons (Optional)</h2>
             <div class="add-ons-group" id="addOnsGroup">
-                <!-- Add-ons will be dynamically inserted here by JavaScript -->
                 <p class="no-add-ons-message">Select a product to see available add-ons.</p>
             </div>
         </section>
 
         <section class="calculation-result">
             <p class="estimated-price">Price in USD: <span id="displayPrice">$0.00</span></p>
-            <p><a href="#" id="viewFullPricelistLink">View Full Pricelist</a></p>
+            <div class="result-actions">
+                <button id="resetButton" class="option-button reset-btn">Reset Calculator</button>
+                <p><a href="#" id="viewFullPricelistLink">View Full Pricelist</a></p>
+            </div>
         </section>
     </div>
-
-    <!-- Link to your JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
-
-
