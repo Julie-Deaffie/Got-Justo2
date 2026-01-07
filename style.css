@@ -1,40 +1,64 @@
-/* Basic Reset */
+:root {
+    --bg-grey: #e0e0e0;
+    --dark-card: #120909;
+    --justo-red: #c41e1e;
+    --border-grey: #333;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    color: #333;
+    background-color: var(--bg-grey);
+    background-image: radial-gradient(#bcbcbc 1px, transparent 1px);
+    background-size: 20px 20px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    display: flex; justify-content: center; padding: 20px;
 }
 
-.container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    max-width: 400px;
-    width: 100%;
+.calculator-card {
+    width: 100%; max-width: 450px; text-align: center;
 }
 
-section {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
+.logo-text { font-size: 3em; margin: 0; color: #000; letter-spacing: -2px; }
+.logo-text .red { color: var(--justo-red); }
+.subtitle { font-size: 1.2em; font-weight: bold; margin-bottom: 20px; border-bottom: 3px solid #000; padding-bottom: 10px; }
 
-.btn-group {
-    display: flex;
-    gap: 10px;
-}
+.section { margin-bottom: 25px; border-bottom: 2px solid #000; padding-bottom: 15px; }
+.label { color: var(--justo-red); text-transform: uppercase; font-size: 0.9em; margin-bottom: 15px; }
 
-button {
-    padding: 10px;
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid #ccc;
-    flex: 1;
+.vertical-stack { display: flex; flex-direction: column; gap: 10px; }
+.btn-main {
+    background: var(--dark-card); color: #fff; border: 2px solid var(--border-grey);
+    padding: 15px; border-radius: 12px; font-weight: bold; cursor: pointer;
 }
+.btn-main.selected { border-color: var(--justo-red); box-shadow: 0 0 10px var(--justo-red); }
+
+.grid-2x2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-pill {
+    background: #fff; border: 2px solid #000; padding: 10px; border-radius: 15px;
+    font-weight: bold; cursor: pointer;
+}
+.btn-pill.selected { background: #000; color: #fff; }
+
+.connection-row { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.conn-group { border: 1px solid #000; padding: 10px; border-radius: 20px; flex: 1; min-width: 180px; }
+.conn-label { font-size: 0.7em; margin-bottom: 5px; display: block; }
+
+.bubble-row { display: flex; justify-content: space-around; }
+.bubble {
+    width: 35px; height: 35px; border-radius: 50%; border: 2px solid #000;
+    display: flex; align-items: center; justify-content: center; font-size: 0.8em;
+    cursor: pointer; background: #fff;
+}
+.bubble.selected { background: var(--justo-red); color: #fff; border-color: #fff; }
+
+.footer-card {
+    background: var(--dark-card); color: #fff; padding: 20px; border-radius: 15px; margin-top: 20px;
+}
+.footer-label { color: var(--justo-red); font-size: 0.8em; margin-bottom: 10px; }
+.price-display { font-size: 3.5em; font-weight: bold; }
+.currency { font-size: 0.5em; vertical-align: top; margin-right: 5px; }
+.per-mo { font-size: 0.3em; color: #888; }
+
+.reset-link { background: none; border: none; color: #aaa; text-decoration: underline; cursor: pointer; margin-top: 15px; }}
 
 button.selected {
     background: #007bff;
