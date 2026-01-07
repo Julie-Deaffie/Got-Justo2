@@ -3,38 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Calculator</title>
+    <title>GotJusto? Cost Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Service Calculator</h1>
+    <div class="calculator-card">
+        <header class="header">
+            <h1 class="logo-text"><span class="red">got</span>JUSTO?</h1>
+            <p class="subtitle">Subscription Cost Calculator</p>
         </header>
 
-        <section>
-            <h3>Select Service</h3>
-            <div id="productOptions" class="btn-group">
-                <button data-product="A">IPTV</button>
-                <button data-product="B">VOD</button>
-                <button data-product="C">IPTV & VOD</button>
+        <section class="section">
+            <h3 class="label">Choose Your Product(s)</h3>
+            <div id="productOptions" class="vertical-stack">
+                <button class="btn-main" data-product="A">LIVE IPTV 📺</button>
+                <button class="btn-main" data-product="B">VIDEO ON DEMAND 🎬</button>
+                <button class="btn-main" data-product="C">IPTV & VOD ✪</button>
             </div>
         </section>
 
-        <section>
-            <h3>Duration</h3>
-            <div id="durationOptions" class="btn-group">
-                <button data-duration="1">1 Month</button>
-                <button data-duration="3">3 Months</button>
-                <button data-duration="6">6 Months</button>
-                <button data-duration="12">12 Months</button>
+        <section class="section">
+            <h3 class="label">Choose Subscription Length</h3>
+            <div id="durationOptions" class="grid-2x2">
+                <button class="btn-pill" data-duration="1">1 MONTH</button>
+                <button class="btn-pill" data-duration="3">3 MONTHS</button>
+                <button class="btn-pill" data-duration="6">6 MONTHS</button>
+                <button class="btn-pill" data-duration="12">12 MONTHS</button>
             </div>
         </section>
 
-        <section>
-            <h3>Connections</h3>
-            <div id="connectionInputsContainer">
+        <section class="section">
+            <h3 class="label">How Many Connections Do You Require?</h3>
+            <div id="connectionContainer" class="connection-row">
                 </div>
+        </section>
+
+        <section class="section">
+            <h3 class="label">Do You Wish To Include Any Add-ons?</h3>
+            <div id="addOnsGroup" class="addon-grid">
+                </div>
+        </section>
+
+        <div class="footer-card">
+            <p class="footer-label">TOTAL COST OF THE SELECTED SUBSCRIPTION PACKAGE</p>
+            <div class="price-display">
+                <span class="currency">$</span><span id="displayPrice">0</span><span class="per-mo">/ package</span>
+            </div>
+            <button id="resetButton" class="reset-link">RESET CALCULATOR</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>                </div>
         </section>
 
         <section>
