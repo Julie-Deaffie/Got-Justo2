@@ -3,38 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GotJusto? Cost Calculator</title>
+    <title>CYBER-JUSTO SUBSCRIPTION TERMINAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator-card">
+    <div class="scanlines"></div>
+
+    <div class="calculator-card cyber-container">
         <header class="header">
-            <h1 class="logo-text"><span class="red">got</span>JUSTO?</h1>
-            <p class="subtitle">Subscription Cost Calculator</p>
+            <h1 class="logo-text"><span class="neon-cyan">CYBER</span><span class="neon-purple">JUSTO</span></h1>
+            <p class="subtitle">// SUBSCRIPTION_TERMINAL_V2.0 //</p>
         </header>
 
-        <section class="section">
-            <h3 class="label">Choose Your Product(s)</h3>
+        <section class="section cyber-panel">
+            <h3 class="label">>> SELECT_DATA_STREAM</h3>
             <div id="productOptions" class="vertical-stack">
-                <button class="btn-main" data-product="A">LIVE IPTV 📺</button>
-                <button class="btn-main" data-product="B">VIDEO ON DEMAND 🎬</button>
-                <button class="btn-main" data-product="C">IPTV & VOD ✪</button>
+                <button class="btn-cyber-main" data-product="A">LIVE IPTV FEED [📺]</button>
+                <button class="btn-cyber-main" data-product="B">VOD DATABASE [🎬]</button>
+                <button class="btn-cyber-main cyber-glitch" data-product="C">FULL DUAL LINK [✪]</button>
             </div>
         </section>
 
-        <section class="section">
-            <h3 class="label">Choose Subscription Length</h3>
+        <section class="section cyber-panel">
+            <h3 class="label">>> TIME_CYCLE_DURATION</h3>
             <div id="durationOptions" class="grid-2x2">
-                <button class="btn-pill" data-duration="1">1 MONTH</button>
-                <button class="btn-pill" data-duration="3">3 MONTHS</button>
-                <button class="btn-pill" data-duration="6">6 MONTHS</button>
-                <button class="btn-pill" data-duration="12">12 MONTHS</button>
+                <button class="btn-cyber-pill" data-duration="1">1 CYCL</button>
+                <button class="btn-cyber-pill" data-duration="3">3 CYCL</button>
+                <button class="btn-cyber-pill" data-duration="6">6 CYCL</button>
+                <button class="btn-cyber-pill" data-duration="12">12 CYCL</button>
             </div>
         </section>
 
-        <section class="section">
-            <h3 class="label">How Many Connections Do You Require?</h3>
+        <section class="section cyber-panel">
+            <h3 class="label">>> ACTIVE_NODES (CONNECTIONS)</h3>
             <div id="connectionContainer" class="connection-row">
+                </div>
+        </section>
+
+        <section class="section cyber-panel">
+            <h3 class="label">>> OPTIONAL_PROTOCOLS (ADD-ONS)</h3>
+            <div id="addOnsGroup" class="addon-grid grid-2x2">
+                </div>
+        </section>
+
+        <div class="footer-card cyber-hud">
+            <p class="footer-label">ESTIMATED_CREDIT_COST:</p>
+            <div class="price-display debug-text">
+                <span class="currency">$</span><span id="displayPrice" class="neon-green-text">0</span>
+            </div>
+            <button id="resetButton" class="reset-link cyber-reset">[ RESET_TERMINAL ]</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>            <div id="connectionContainer" class="connection-row">
                 </div>
         </section>
 
