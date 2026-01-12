@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="HD0492.mp4" type="video/mp4">
+    </video>
+
     <div class="scanlines"></div>
 
     <div class="calculator-card cyber-container">
         <header class="header">
             <h1 class="logo-text"><span class="neon-cyan">got</span><span class="neon-purple">JUSTO?</span></h1>
-            <p class="subtitle">// Subscription Cost Calculator //</p>
+            <h2 class="sub-header-main">IPTV & Video on Demand</h2>
+            <h3 class="subtitle">// Subscription Cost Calculator //</h3>
         </header>
 
         <section class="section cyber-panel">
@@ -50,7 +55,7 @@
         <div class="footer-card cyber-hud">
             <p class="footer-label">TOTAL COST OF THE SELECTED SUBSCRIPTION PACKAGE</p>
             <div class="price-display debug-text">
-                <span class="currency">$</span><span id="displayPrice" class="neon-green-text">0</span><span class="per-mo">/pkg</span>
+                <span class="currency">$</span><span id="displayPrice" class="neon-green-text">0</span><span class="per-mo">USD</span>
             </div>
             <button id="resetButton" class="cyber-reset">[ RESET CALCULATOR ]</button>
         </div>
