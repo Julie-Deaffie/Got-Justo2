@@ -7,67 +7,8 @@
     --text-dim: #c5c5e0;
     --text-bright: #e8e8f5;
     --font-header: 'Orbitron', sans-serif;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GotJusto? Subscription Pricing</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="scanlines"></div>
-
-    <div class="calculator-card cyber-container">
-        <header class="header">
-            <h1 class="logo-text"><span class="neon-cyan">got</span><span class="neon-purple">JUSTO?</span></h1>
-            <p class="subtitle">// Subscription Cost Calculator //</p>
-        </header>
-
-        <section class="section cyber-panel">
-            <h3 class="label">Choose Your Product(s)</h3>
-            <div id="productOptions" class="vertical-stack">
-                <button class="btn-cyber-main" data-product="A">LIVE IPTV</button>
-                <button class="btn-cyber-main" data-product="B">VIDEO ON DEMAND</button>
-                <button class="btn-cyber-main" data-product="C">IPTV & VOD</button>
-            </div>
-        </section>
-
-        <section class="section cyber-panel">
-            <h3 class="label">Choose Subscription Length</h3>
-            <div id="durationOptions" class="grid-2x2">
-                <button class="btn-cyber-pill" data-duration="1">1 MONTH</button>
-                <button class="btn-cyber-pill" data-duration="3">3 MONTHS</button>
-                <button class="btn-cyber-pill" data-duration="6">6 MONTHS</button>
-                <button class="btn-cyber-pill" data-duration="12">12 MONTHS</button>
-            </div>
-        </section>
-
-        <section class="section cyber-panel">
-            <h3 class="label">How Many Connections Do You Require?</h3>
-            <div id="connectionContainer" class="connection-row"></div>
-        </section>
-
-        <section class="section cyber-panel">
-            <h3 class="label">Do You Wish To Include Any Add-ons?</h3>
-            <div id="addOnsGroup" class="addon-grid grid-2x2"></div>
-        </section>
-
-        <div class="footer-card cyber-hud">
-            <p class="footer-label">TOTAL COST OF THE SELECTED SUBSCRIPTION PACKAGE</p>
-            <div class="price-display">
-                <span class="currency">$</span><span id="displayPrice" class="neon-green-text">0</span><span class="per-mo">USD</span>
-            </div>
-            <button id="resetButton" class="cyber-reset">[ RESET CALCULATOR ]</button>
-        </div>
-    </div>
-    
-    <script src="script.js"></script>
-</body>
-</html>}
+    --font-data: 'Share Tech Mono', monospace;
+}
 
 * {
     box-sizing: border-box;
@@ -81,19 +22,27 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-dark);
-    background-image: 
-        linear-gradient(rgba(0, 247, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 247, 255, 0.08) 1px, transparent 1px);
-    background-size: 30px 30px;
     font-family: var(--font-data);
     color: var(--text-dim);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center; /* Centered vertically */
     padding: 20px;
     min-height: 100vh;
     overflow-x: hidden;
     width: 100%;
+}
+
+/* Background Video Styling */
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -2; /* Behind everything */
+    object-fit: cover;
+    opacity: 0.6; /* Adjust brightness of video */
 }
 
 /* Scanline effect overlay */
@@ -107,20 +56,20 @@ body {
                 linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
     background-size: 100% 4px, 3px 100%;
     pointer-events: none;
-    z-index: 10;
-    opacity: 0.6;
+    z-index: -1; /* Behind content, in front of video */
 }
 
 .cyber-container {
     width: 100%;
     max-width: 520px;
     text-align: center;
-    background: var(--panel-dark);
+    background: rgba(10, 10, 26, 0.95); /* Slight transparency */
     border: 2px solid var(--neon-purple);
     box-shadow: 0 0 25px rgba(188, 19, 254, 0.3), inset 0 0 30px rgba(188, 19, 254, 0.1);
     padding: 30px;
     border-radius: 8px;
     position: relative;
+    backdrop-filter: blur(5px);
 }
 
 /* Header styling */
@@ -130,31 +79,34 @@ body {
     margin: 0;
     letter-spacing: 3px;
     text-shadow: 0 0 15px var(--neon-cyan);
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
-.neon-cyan {
-    color: var(--neon-cyan);
-}
-
-.neon-purple {
-    color: var(--neon-purple);
+.sub-header-main {
+    font-family: var(--font-header);
+    color: var(--text-bright);
+    font-size: 1.2em;
+    margin: 5px 0 0;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px var(--neon-purple);
 }
 
 .subtitle {
-    font-size: 1em;
-    color: var(--text-bright);
+    font-size: 0.9em;
+    color: var(--neon-cyan);
     letter-spacing: 2px;
-    margin: 15px 0 30px;
-    opacity: 0.9;
+    margin: 10px 0 25px;
+    opacity: 0.8;
+    font-weight: normal;
 }
+
+.neon-cyan { color: var(--neon-cyan); }
+.neon-purple { color: var(--neon-purple); }
 
 /* Panels and Labels */
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     width: 100%;
-    max-width: 100%;
-    overflow: hidden;
 }
 
 .cyber-panel {
@@ -166,31 +118,27 @@ body {
 .label {
     color: var(--text-bright);
     font-family: var(--font-header);
-    font-size: 0.95em;
-    margin-bottom: 18px;
+    font-size: 0.9em;
+    margin-bottom: 12px;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-weight: 600;
-    word-wrap: break-word;
-    max-width: 100%;
 }
 
 /* Main Product Buttons */
 .vertical-stack {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    width: 100%;
-    max-width: 100%;
+    gap: 10px;
 }
 
 .btn-cyber-main {
     background: rgba(0, 247, 255, 0.08);
     color: var(--text-bright);
     border: 2px solid var(--neon-cyan);
-    padding: 18px 20px;
+    padding: 15px 20px;
     font-family: var(--font-header);
-    font-size: 1.15em;
+    font-size: 1.1em;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s;
@@ -200,25 +148,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     border-radius: 4px;
-    min-height: 56px;
+    min-height: 50px;
     width: 100%;
-    max-width: 100%;
-    word-wrap: break-word;
-}
-
-.btn-cyber-main::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.3), transparent);
-    transition: 0.5s;
-}
-
-.btn-cyber-main:hover::before {
-    left: 100%;
 }
 
 .btn-cyber-main:hover {
@@ -227,40 +158,34 @@ body {
 
 .btn-cyber-main.selected {
     background: rgba(0, 247, 255, 0.25);
-    box-shadow: 0 0 30px rgba(0, 247, 255, 0.8), 0 0 50px rgba(0, 247, 255, 0.5), inset 0 0 20px rgba(0, 247, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 247, 255, 0.8), inset 0 0 20px rgba(0, 247, 255, 0.3);
     border-color: var(--neon-cyan);
-    border-width: 3px;
     color: #fff;
-    text-shadow: 0 0 10px var(--neon-cyan), 0 0 20px rgba(0, 247, 255, 0.5);
-    font-weight: 900;
+    text-shadow: 0 0 10px var(--neon-cyan);
 }
 
 /* Duration & Addon Buttons (Pills) */
 .grid-2x2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
-    width: 100%;
-    max-width: 100%;
+    gap: 10px;
 }
 
 .btn-cyber-pill {
     background: rgba(188, 19, 254, 0.05);
     border: 2px solid var(--neon-purple);
     color: var(--text-bright);
-    padding: 16px 12px;
+    padding: 12px 10px;
     font-family: var(--font-data);
     font-weight: bold;
-    font-size: 1.05em;
+    font-size: 1em;
     cursor: pointer;
     transition: all 0.2s;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     border-radius: 4px;
-    min-height: 52px;
+    min-height: 45px;
     width: 100%;
-    max-width: 100%;
-    word-wrap: break-word;
 }
 
 .btn-cyber-pill:hover {
@@ -272,56 +197,49 @@ body {
     background: var(--neon-purple);
     color: #fff;
     box-shadow: 0 0 18px rgba(188, 19, 254, 0.7);
-    font-weight: bold;
 }
 
 /* Connection Nodes */
 .connection-row {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 15px;
     flex-wrap: wrap;
-    width: 100%;
-    max-width: 100%;
 }
 
 .conn-group {
     border: 2px dashed rgba(197, 197, 224, 0.4);
-    padding: 18px;
+    padding: 12px;
     background: rgba(0, 0, 0, 0.3);
     flex: 1;
     min-width: 200px;
-    max-width: 100%;
     border-radius: 4px;
 }
 
 .conn-label {
-    font-size: 0.85em;
-    margin-bottom: 14px;
+    font-size: 0.8em;
+    margin-bottom: 10px;
     display: block;
     color: var(--text-bright);
     font-weight: 600;
-    letter-spacing: 0.5px;
 }
 
 .bubble-row {
     display: flex;
     justify-content: space-between;
-    gap: 6px;
-    max-width: 100%;
-    flex-wrap: nowrap;
+    gap: 4px;
 }
 
 .bubble {
-    width: 38px;
-    height: 38px;
+    width: 32px;
+    height: 32px;
     background: var(--panel-dark);
     border: 2px solid var(--text-dim);
     color: #6a6a8a;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
@@ -332,7 +250,6 @@ body {
 .bubble:hover {
     border-color: var(--neon-green);
     color: var(--neon-green);
-    background: rgba(0, 255, 65, 0.1);
 }
 
 .bubble.selected {
@@ -340,54 +257,35 @@ body {
     color: var(--bg-dark);
     border-color: var(--neon-green);
     box-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
-    font-weight: bold;
 }
 
 /* Footer HUD */
 .cyber-hud {
     background: #000;
     border-top: 3px solid var(--neon-green);
-    padding: 25px;
-    margin-top: 30px;
-    position: relative;
-    overflow: hidden;
+    padding: 20px;
+    margin-top: 25px;
     border-radius: 4px;
-    width: 100%;
-    max-width: 100%;
-}
-
-.cyber-hud::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.03) 0px, rgba(0, 255, 65, 0.03) 1px, transparent 1px, transparent 2px);
-    pointer-events: none;
 }
 
 .footer-label {
     color: var(--text-bright);
-    font-size: 0.85em;
-    margin-bottom: 12px;
+    font-size: 0.8em;
+    margin-bottom: 8px;
     letter-spacing: 2px;
-    font-weight: 600;
 }
 
 .price-display {
     font-family: var(--font-data);
-    font-size: 4em;
+    font-size: 3.5em;
     letter-spacing: -2px;
     line-height: 1;
-    margin: 10px 0 20px;
-    word-wrap: break-word;
-    max-width: 100%;
+    margin: 5px 0 15px;
 }
 
 .neon-green-text {
     color: var(--neon-green);
-    text-shadow: 0 0 20px var(--neon-green), 0 0 40px rgba(0, 255, 65, 0.5);
+    text-shadow: 0 0 20px var(--neon-green);
     font-weight: bold;
 }
 
@@ -409,16 +307,13 @@ body {
     border: 2px solid var(--text-dim);
     color: var(--text-bright);
     font-family: var(--font-data);
-    font-size: 0.9em;
-    padding: 12px 20px;
-    margin-top: 15px;
+    font-size: 0.85em;
+    padding: 10px 20px;
     cursor: pointer;
     transition: 0.3s;
     letter-spacing: 1px;
     border-radius: 4px;
     font-weight: 600;
-    max-width: 100%;
-    word-wrap: break-word;
 }
 
 .cyber-reset:hover {
@@ -428,234 +323,35 @@ body {
     background: rgba(0, 247, 255, 0.1);
 }
 
-/* Mobile Responsive Design */
+/* --- LAPTOP / SHORT SCREEN OPTIMIZATION --- */
+/* Applies when screen height is less than 850px (typical laptop) */
+@media (max-height: 850px) {
+    .calculator-card {
+        padding: 15px 20px;
+        max-width: 500px;
+    }
+
+    .logo-text { font-size: 2.2em; }
+    .sub-header-main { font-size: 1em; }
+    .subtitle { margin: 5px 0 15px; font-size: 0.8em; }
+
+    .section { margin-bottom: 12px; }
+    .label { margin-bottom: 6px; font-size: 0.8em; }
+
+    .btn-cyber-main { padding: 10px 15px; min-height: 38px; font-size: 0.95em; }
+    .btn-cyber-pill { padding: 8px 8px; min-height: 35px; font-size: 0.85em; }
+    
+    .conn-group { padding: 8px; }
+    .bubble { width: 28px; height: 28px; font-size: 0.8em; }
+    
+    .cyber-hud { padding: 12px; margin-top: 15px; }
+    .price-display { font-size: 2.8em; margin: 5px 0 10px; }
+    .cyber-reset { padding: 6px 12px; font-size: 0.8em; }
+}
+
+/* Mobile Responsive */
 @media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    .cyber-container {
-        padding: 20px 15px;
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .logo-text {
-        font-size: 2em;
-        letter-spacing: 2px;
-    }
-
-    .subtitle {
-        font-size: 0.85em;
-        margin: 10px 0 20px;
-    }
-
-    .section {
-        margin-bottom: 25px;
-    }
-
-    .cyber-panel {
-        padding-left: 12px;
-    }
-
-    .label {
-        font-size: 0.85em;
-        margin-bottom: 14px;
-    }
-
-    .btn-cyber-main {
-        padding: 16px 18px;
-        font-size: 1.05em;
-        min-height: 54px;
-    }
-
-    .btn-cyber-pill {
-        padding: 14px 10px;
-        font-size: 0.95em;
-        min-height: 48px;
-    }
-
-    .connection-row {
-        gap: 14px;
-        flex-direction: column;
-    }
-
-    .conn-group {
-        padding: 16px;
-        min-width: 100%;
-        width: 100%;
-    }
-
-    .bubble {
-        width: 42px;
-        height: 42px;
-        font-size: 1.05em;
-    }
-
-    .price-display {
-        font-size: 3.2em;
-    }
-
-    .footer-label {
-        font-size: 0.75em;
-    }
-
-    .cyber-reset {
-        font-size: 0.85em;
-        padding: 10px 16px;
-    }
-}
-
-@media (max-width: 400px) {
-    body {
-        padding: 5px;
-    }
-
-    .cyber-container {
-        padding: 15px 10px;
-    }
-
-    .logo-text {
-        font-size: 1.7em;
-    }
-
-    .subtitle {
-        font-size: 0.75em;
-    }
-
-    .cyber-panel {
-        padding-left: 10px;
-    }
-
-    .btn-cyber-main {
-        font-size: 0.95em;
-        padding: 14px 14px;
-        letter-spacing: 1px;
-    }
-
-    .btn-cyber-pill {
-        font-size: 0.85em;
-        padding: 12px 6px;
-        letter-spacing: 1px;
-    }
-
-    .connection-row {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .conn-group {
-        width: 100%;
-        padding: 14px;
-    }
-
-    .bubble {
-        width: 36px;
-        height: 36px;
-        font-size: 0.95em;
-    }
-
-    .bubble-row {
-        gap: 4px;
-    }
-
-    .price-display {
-        font-size: 2.8em;
-    }
-
-    .label {
-        font-size: 0.8em;
-        letter-spacing: 1px;
-    }
-}
-
-@media (max-width: 360px) {
-    body {
-        padding: 3px;
-    }
-
-    .cyber-container {
-        padding: 12px 8px;
-    }
-
-    .logo-text {
-        font-size: 1.5em;
-    }
-
-    .btn-cyber-main {
-        font-size: 0.85em;
-        padding: 12px 12px;
-        letter-spacing: 0.5px;
-    }
-
-    .btn-cyber-pill {
-        font-size: 0.75em;
-        padding: 10px 5px;
-        letter-spacing: 0.5px;
-    }
-
-    .conn-group {
-        padding: 12px;
-    }
-
-    .bubble {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9em;
-    }
-
-    .bubble-row {
-        gap: 3px;
-    }
-
-    .price-display {
-        font-size: 2.5em;
-    }
-}
-
-/* Landscape Mobile */
-@media (max-width: 900px) and (orientation: landscape) {
-    body {
-        padding: 10px;
-    }
-
-    .cyber-container {
-        padding: 20px;
-        max-width: 700px;
-    }
-
-    .logo-text {
-        font-size: 2em;
-    }
-
-    .section {
-        margin-bottom: 20px;
-    }
-
-    .connection-row {
-        flex-direction: row;
-    }
-
-    .conn-group {
-        min-width: 45%;
-    }
-
-    .price-display {
-        font-size: 3em;
-    }
-}
-
-/* Tablet */
-@media (min-width: 601px) and (max-width: 900px) {
-    .cyber-container {
-        max-width: 600px;
-    }
-
-    .logo-text {
-        font-size: 2.5em;
-    }
-
-    .conn-group {
-        min-width: 250px;
-    }
+    .logo-text { font-size: 1.8em; }
+    .connection-row { flex-direction: column; gap: 8px; }
+    .grid-2x2 { gap: 8px; }
 }
