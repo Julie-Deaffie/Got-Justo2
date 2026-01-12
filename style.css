@@ -1,357 +1,48 @@
-:root {
-    --bg-dark: #050510;
-    --panel-dark: #0a0a1a;
-    --neon-cyan: #00f7ff;
-    --neon-purple: #bc13fe;
-    --neon-green: #00ff41;
-    --text-dim: #c5c5e0;
-    --text-bright: #e8e8f5;
-    --font-header: 'Orbitron', sans-serif;
-    --font-data: 'Share Tech Mono', monospace;
-}
+/* ... existing root and background styles ... */
 
-* {
-    box-sizing: border-box;
-}
-
-html {
-    overflow-x: hidden;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-dark);
-    font-family: var(--font-data);
-    color: var(--text-dim);
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centered vertically */
-    padding: 20px;
-    min-height: 100vh;
-    overflow-x: hidden;
-    width: 100%;
-}
-
-/* Background Video Styling */
-#bg-video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -2; /* Behind everything */
-    object-fit: cover;
-    opacity: 0.6; /* Adjust brightness of video */
-}
-
-/* Scanline effect overlay */
-.scanlines {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
-    background-size: 100% 4px, 3px 100%;
-    pointer-events: none;
-    z-index: -1; /* Behind content, in front of video */
-}
-
-.cyber-container {
-    width: 100%;
-    max-width: 520px;
-    text-align: center;
-    background: rgba(10, 10, 26, 0.95); /* Slight transparency */
-    border: 2px solid var(--neon-purple);
-    box-shadow: 0 0 25px rgba(188, 19, 254, 0.3), inset 0 0 30px rgba(188, 19, 254, 0.1);
-    padding: 30px;
-    border-radius: 8px;
-    position: relative;
-    backdrop-filter: blur(5px);
-}
-
-/* Header styling */
-.logo-text {
-    font-family: var(--font-header);
-    font-size: 2.8em;
-    margin: 0;
+.tagline {
+    font-size: 0.7em;
     letter-spacing: 3px;
-    text-shadow: 0 0 15px var(--neon-cyan);
-    line-height: 1.1;
+    color: var(--accent-cyan);
+    opacity: 0.7;
 }
 
-.sub-header-main {
-    font-family: var(--font-header);
-    color: var(--text-bright);
-    font-size: 1.2em;
-    margin: 5px 0 0;
+.summary-container {
+    font-size: 0.75em;
+    color: #fff;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    text-shadow: 0 0 5px var(--neon-purple);
+    margin-bottom: 5px;
+    min-height: 40px; /* Prevents layout jump */
 }
 
-.subtitle {
+.summary-line {
+    color: var(--accent-magenta);
+    font-weight: bold;
+}
+
+.summary-addons {
     font-size: 0.9em;
-    color: var(--neon-cyan);
-    letter-spacing: 2px;
-    margin: 10px 0 25px;
+    color: var(--accent-cyan);
     opacity: 0.8;
-    font-weight: normal;
 }
 
-.neon-cyan { color: var(--neon-cyan); }
-.neon-purple { color: var(--neon-purple); }
-
-/* Panels and Labels */
-.section {
-    margin-bottom: 25px;
-    width: 100%;
-}
-
-.cyber-panel {
-    border-left: 3px solid var(--neon-cyan);
-    padding-left: 18px;
-    text-align: left;
-}
-
-.label {
-    color: var(--text-bright);
-    font-family: var(--font-header);
-    font-size: 0.9em;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 600;
-}
-
-/* Main Product Buttons */
-.vertical-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.btn-cyber-main {
-    background: rgba(0, 247, 255, 0.08);
-    color: var(--text-bright);
-    border: 2px solid var(--neon-cyan);
-    padding: 15px 20px;
-    font-family: var(--font-header);
-    font-size: 1.1em;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 4px;
-    min-height: 50px;
-    width: 100%;
-}
-
-.btn-cyber-main:hover {
-    background: rgba(0, 247, 255, 0.15);
-}
-
-.btn-cyber-main.selected {
-    background: rgba(0, 247, 255, 0.25);
-    box-shadow: 0 0 30px rgba(0, 247, 255, 0.8), inset 0 0 20px rgba(0, 247, 255, 0.3);
-    border-color: var(--neon-cyan);
-    color: #fff;
-    text-shadow: 0 0 10px var(--neon-cyan);
-}
-
-/* Duration & Addon Buttons (Pills) */
-.grid-2x2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.btn-cyber-pill {
-    background: rgba(188, 19, 254, 0.05);
-    border: 2px solid var(--neon-purple);
-    color: var(--text-bright);
-    padding: 12px 10px;
-    font-family: var(--font-data);
-    font-weight: bold;
-    font-size: 1em;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    min-height: 45px;
-    width: 100%;
-}
-
-.btn-cyber-pill:hover {
-    background: rgba(188, 19, 254, 0.15);
-    box-shadow: 0 0 12px rgba(188, 19, 254, 0.4);
-}
-
-.btn-cyber-pill.selected {
-    background: var(--neon-purple);
-    color: #fff;
-    box-shadow: 0 0 18px rgba(188, 19, 254, 0.7);
-}
-
-/* Connection Nodes */
-.connection-row {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.conn-group {
-    border: 2px dashed rgba(197, 197, 224, 0.4);
-    padding: 12px;
-    background: rgba(0, 0, 0, 0.3);
-    flex: 1;
-    min-width: 200px;
-    border-radius: 4px;
-}
-
-.conn-label {
-    font-size: 0.8em;
-    margin-bottom: 10px;
-    display: block;
-    color: var(--text-bright);
-    font-weight: 600;
-}
-
-.bubble-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 4px;
-}
-
-.bubble {
-    width: 32px;
-    height: 32px;
-    background: var(--panel-dark);
-    border: 2px solid var(--text-dim);
-    color: #6a6a8a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9em;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    font-family: var(--font-data);
-    border-radius: 4px;
-}
-
-.bubble:hover {
-    border-color: var(--neon-green);
-    color: var(--neon-green);
-}
-
-.bubble.selected {
-    background: var(--neon-green);
-    color: var(--bg-dark);
-    border-color: var(--neon-green);
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
-}
-
-/* Footer HUD */
-.cyber-hud {
-    background: #000;
-    border-top: 3px solid var(--neon-green);
-    padding: 20px;
-    margin-top: 25px;
-    border-radius: 4px;
-}
-
-.footer-label {
-    color: var(--text-bright);
-    font-size: 0.8em;
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-
+/* Adjusting the Price to fit the summary */
 .price-display {
-    font-family: var(--font-data);
-    font-size: 3.5em;
-    letter-spacing: -2px;
-    line-height: 1;
-    margin: 5px 0 15px;
-}
-
-.neon-green-text {
-    color: var(--neon-green);
-    text-shadow: 0 0 20px var(--neon-green);
+    font-size: 3.5em; /* Slightly smaller to accommodate summary */
+    color: var(--accent-green);
+    text-shadow: 0 0 20px var(--accent-green);
     font-weight: bold;
+    line-height: 1;
 }
 
-.currency {
-    font-size: 0.5em;
-    vertical-align: top;
-    margin-right: 6px;
-    color: var(--neon-green);
-}
+.currency { font-size: 0.4em; vertical-align: top; margin-right: 5px; }
 
-.per-mo {
-    font-size: 0.35em;
-    color: var(--text-dim);
-    margin-left: 6px;
-}
-
-.cyber-reset {
-    background: transparent;
-    border: 2px solid var(--text-dim);
-    color: var(--text-bright);
-    font-family: var(--font-data);
-    font-size: 0.85em;
-    padding: 10px 20px;
+.reset-link {
+    color: var(--accent-magenta);
+    text-decoration: none;
+    font-size: 0.7em;
     cursor: pointer;
-    transition: 0.3s;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    font-weight: 600;
-}
-
-.cyber-reset:hover {
-    border-color: var(--neon-cyan);
-    color: var(--neon-cyan);
-    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
-    background: rgba(0, 247, 255, 0.1);
-}
-
-/* --- LAPTOP / SHORT SCREEN OPTIMIZATION --- */
-/* Applies when screen height is less than 850px (typical laptop) */
-@media (max-height: 850px) {
-    .calculator-card {
-        padding: 15px 20px;
-        max-width: 500px;
-    }
-
-    .logo-text { font-size: 2.2em; }
-    .sub-header-main { font-size: 1em; }
-    .subtitle { margin: 5px 0 15px; font-size: 0.8em; }
-
-    .section { margin-bottom: 12px; }
-    .label { margin-bottom: 6px; font-size: 0.8em; }
-
-    .btn-cyber-main { padding: 10px 15px; min-height: 38px; font-size: 0.95em; }
-    .btn-cyber-pill { padding: 8px 8px; min-height: 35px; font-size: 0.85em; }
-    
-    .conn-group { padding: 8px; }
-    .bubble { width: 28px; height: 28px; font-size: 0.8em; }
-    
-    .cyber-hud { padding: 12px; margin-top: 15px; }
-    .price-display { font-size: 2.8em; margin: 5px 0 10px; }
-    .cyber-reset { padding: 6px 12px; font-size: 0.8em; }
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .logo-text { font-size: 1.8em; }
-    .connection-row { flex-direction: column; gap: 8px; }
-    .grid-2x2 { gap: 8px; }
+    margin-top: 10px;
+    letter-spacing: 2px;
 }
