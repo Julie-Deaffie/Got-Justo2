@@ -4,37 +4,473 @@
     --neon-cyan: #00f7ff;
     --neon-purple: #bc13fe;
     --neon-green: #00ff41;
-    --text-dim: #a2a2d0;
+    --text-dim: #c5c5e0;
+    --text-bright: #e8e8f5;
     --font-header: 'Orbitron', sans-serif;
     --font-data: 'Share Tech Mono', monospace;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
+    margin: 0;
     background-color: var(--bg-dark);
-    /* Digital Grid Background Pattern */
     background-image: 
-        linear-gradient(rgba(0, 247, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 247, 255, 0.1) 1px, transparent 1px);
+        linear-gradient(rgba(0, 247, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 247, 255, 0.08) 1px, transparent 1px);
     background-size: 30px 30px;
     font-family: var(--font-data);
     color: var(--text-dim);
-    display: flex; justify-content: center; padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
     min-height: 100vh;
 }
 
 /* Scanline effect overlay */
 .scanlines {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
     background-size: 100% 4px, 3px 100%;
-    pointer-events: none; z-index: 10;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.6;
 }
 
 .cyber-container {
-    width: 100%; max-width: 480px; text-align: center;
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
     background: var(--panel-dark);
-    border: 1px solid var(--neon-purple);
-    box-shadow: 0 0 20px rgba(188, 19, 254, 0.2), inset 0 0 20px rgba(188, 19, 254, 0.1);
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 25px rgba(188, 19, 254, 0.3), inset 0 0 30px rgba(188, 19, 254, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Header styling */
+.logo-text {
+    font-family: var(--font-header);
+    font-size: 2.8em;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px var(--neon-cyan);
+    line-height: 1.2;
+}
+
+.neon-cyan {
+    color: var(--neon-cyan);
+}
+
+.neon-purple {
+    color: var(--neon-purple);
+}
+
+.subtitle {
+    font-size: 1em;
+    color: var(--text-bright);
+    letter-spacing: 2px;
+    margin: 15px 0 30px;
+    opacity: 0.9;
+}
+
+/* Panels and Labels */
+.section {
+    margin-bottom: 30px;
+}
+
+.cyber-panel {
+    border-left: 3px solid var(--neon-cyan);
+    padding-left: 18px;
+    text-align: left;
+}
+
+.label {
+    color: var(--text-bright);
+    font-family: var(--font-header);
+    font-size: 0.95em;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+/* Main Product Buttons */
+.vertical-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.btn-cyber-main {
+    background: rgba(0, 247, 255, 0.08);
+    color: var(--text-bright);
+    border: 2px solid var(--neon-cyan);
+    padding: 18px 20px;
+    font-family: var(--font-header);
+    font-size: 1.05em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    min-height: 56px;
+}
+
+.btn-cyber-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.3), transparent);
+    transition: 0.5s;
+}
+
+.btn-cyber-main:hover::before {
+    left: 100%;
+}
+
+.btn-cyber-main:hover {
+    background: rgba(0, 247, 255, 0.15);
+}
+
+.btn-cyber-main.selected {
+    background: rgba(0, 247, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.6);
+    border-color: var(--neon-cyan);
+    color: #fff;
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* Duration & Addon Buttons (Pills) */
+.grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.btn-cyber-pill {
+    background: rgba(188, 19, 254, 0.05);
+    border: 2px solid var(--neon-purple);
+    color: var(--text-bright);
+    padding: 16px 12px;
+    font-family: var(--font-data);
+    font-weight: bold;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    min-height: 52px;
+}
+
+.btn-cyber-pill:hover {
+    background: rgba(188, 19, 254, 0.15);
+    box-shadow: 0 0 12px rgba(188, 19, 254, 0.4);
+}
+
+.btn-cyber-pill.selected {
+    background: var(--neon-purple);
+    color: #fff;
+    box-shadow: 0 0 18px rgba(188, 19, 254, 0.7);
+    font-weight: bold;
+}
+
+/* Connection Nodes */
+.connection-row {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.conn-group {
+    border: 2px dashed rgba(197, 197, 224, 0.4);
+    padding: 18px;
+    background: rgba(0, 0, 0, 0.3);
+    flex: 1;
+    min-width: 200px;
+    border-radius: 4px;
+}
+
+.conn-label {
+    font-size: 0.85em;
+    margin-bottom: 14px;
+    display: block;
+    color: var(--text-bright);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.bubble-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.bubble {
+    width: 38px;
+    height: 38px;
+    background: var(--panel-dark);
+    border: 2px solid var(--text-dim);
+    color: var(--text-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-data);
+    border-radius: 4px;
+}
+
+.bubble:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+    background: rgba(0, 255, 65, 0.1);
+}
+
+.bubble.selected {
+    background: var(--neon-green);
+    color: var(--bg-dark);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+    font-weight: bold;
+}
+
+/* Footer HUD */
+.cyber-hud {
+    background: #000;
+    border-top: 3px solid var(--neon-green);
+    padding: 25px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.cyber-hud::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg, rgba(0, 255, 65, 0.03) 0px, rgba(0, 255, 65, 0.03) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+}
+
+.footer-label {
+    color: var(--text-bright);
+    font-size: 0.85em;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.price-display {
+    font-family: var(--font-data);
+    font-size: 4em;
+    letter-spacing: -2px;
+    line-height: 1;
+    margin: 10px 0 20px;
+}
+
+.neon-green-text {
+    color: var(--neon-green);
+    text-shadow: 0 0 20px var(--neon-green), 0 0 40px rgba(0, 255, 65, 0.5);
+    font-weight: bold;
+}
+
+.currency {
+    font-size: 0.5em;
+    vertical-align: top;
+    margin-right: 6px;
+    color: var(--neon-green);
+}
+
+.per-mo {
+    font-size: 0.35em;
+    color: var(--text-dim);
+    margin-left: 6px;
+}
+
+.cyber-reset {
+    background: transparent;
+    border: 2px solid var(--text-dim);
+    color: var(--text-bright);
+    font-family: var(--font-data);
+    font-size: 0.9em;
+    padding: 12px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.cyber-reset:hover {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    background: rgba(0, 247, 255, 0.1);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .cyber-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .logo-text {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+        margin: 10px 0 20px;
+    }
+
+    .section {
+        margin-bottom: 25px;
+    }
+
+    .label {
+        font-size: 0.85em;
+        margin-bottom: 14px;
+    }
+
+    .btn-cyber-main {
+        padding: 16px 18px;
+        font-size: 0.95em;
+        min-height: 54px;
+    }
+
+    .btn-cyber-pill {
+        padding: 14px 10px;
+        font-size: 0.85em;
+        min-height: 48px;
+    }
+
+    .connection-row {
+        gap: 14px;
+    }
+
+    .conn-group {
+        padding: 16px;
+        min-width: 100%;
+    }
+
+    .bubble {
+        width: 42px;
+        height: 42px;
+        font-size: 1.05em;
+    }
+
+    .price-display {
+        font-size: 3.2em;
+    }
+
+    .footer-label {
+        font-size: 0.75em;
+    }
+
+    .cyber-reset {
+        font-size: 0.85em;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-text {
+        font-size: 1.7em;
+    }
+
+    .subtitle {
+        font-size: 0.75em;
+    }
+
+    .btn-cyber-main {
+        font-size: 0.85em;
+        padding: 14px 16px;
+    }
+
+    .btn-cyber-pill {
+        font-size: 0.75em;
+        padding: 12px 8px;
+    }
+
+    .bubble {
+        width: 36px;
+        height: 36px;
+        font-size: 0.95em;
+    }
+
+    .price-display {
+        font-size: 2.8em;
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 900px) and (orientation: landscape) {
+    body {
+        padding: 10px;
+    }
+
+    .cyber-container {
+        padding: 20px;
+    }
+
+    .logo-text {
+        font-size: 2em;
+    }
+
+    .section {
+        margin-bottom: 20px;
+    }
+
+    .price-display {
+        font-size: 3em;
+    }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 900px) {
+    .cyber-container {
+        max-width: 600px;
+    }
+
+    .logo-text {
+        font-size: 2.5em;
+    }
+
+    .conn-group {
+        min-width: 250px;
+    }
+}    box-shadow: 0 0 20px rgba(188, 19, 254, 0.2), inset 0 0 20px rgba(188, 19, 254, 0.1);
     padding: 25px; border-radius: 5px; position: relative;
 }
 
