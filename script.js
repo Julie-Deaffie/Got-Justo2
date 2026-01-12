@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetButton = document.getElementById('resetButton');
 
     let state = { product: 'A', duration: 1, iptv: 1, vod: 1, addons: new Set() };
-    const ADDON_RATE = 0.50; // $0.50 per connection per month [cite: 1]
+    const ADDON_RATE = 0.50; // $0.50 per connection per month
 
     const pricing = {
         'A': { 
-            base: { 1: 9, 3: 24, 6: 45, 12: 84 }, // [cite: 2, 43, 84, 125]
-            extra: { 1: 3, 3: 8, 6: 15, 12: 30 }, // [cite: 10, 51, 92, 133]
+            base: { 1: 9, 3: 24, 6: 45, 12: 84 }, //
+            extra: { 1: 3, 3: 8, 6: 15, 12: 30 }, //
             addons: [
                 {id:'iptv_a', name:'ADULT'}, 
                 {id:'iptv_bw', name:'LOW-BANDWIDTH'}, 
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         },
         'B': { 
-            base: { 1: 8, 3: 21, 6: 39, 12: 72 }, // [cite: 167, 188, 209, 230]
-            extra: { 1: 2.5, 3: 7, 6: 15, 12: 30 }, // [cite: 171, 192, 213, 234]
+            base: { 1: 8, 3: 21, 6: 39, 12: 72 }, //
+            extra: { 1: 2.5, 3: 7, 6: 15, 12: 30 }, //
             addons: [
                 {id:'vod_a', name:'ADULT'}, 
                 {id:'vod_24', name:'24/7 CHANNELS'}
