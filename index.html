@@ -21,9 +21,9 @@
         <section class="section cyber-panel">
             <h3 class="label">Choose Your Product(s)</h3>
             <div id="productOptions" class="vertical-stack">
-                <button class="btn-cyber-main" data-product="A">LIVE IPTV 📺</button>
-                <button class="btn-cyber-main" data-product="B">VIDEO ON DEMAND 🎬</button>
-                <button class="btn-cyber-main cyber-glitch" data-product="C">IPTV & VOD ✪</button>
+                <button class="btn-cyber-main" data-product="A">LIVE IPTV</button>
+                <button class="btn-cyber-main" data-product="B">VIDEO ON DEMAND</button>
+                <button class="btn-cyber-main cyber-glitch" data-product="C">IPTV & VOD</button>
             </div>
         </section>
 
@@ -35,6 +35,31 @@
                 <button class="btn-cyber-pill" data-duration="6">6 MONTHS</button>
                 <button class="btn-cyber-pill" data-duration="12">12 MONTHS</button>
             </div>
+        </section>
+
+        <section class="section cyber-panel">
+            <h3 class="label">How Many Connections Do You Require?</h3>
+            <div id="connectionContainer" class="connection-row">
+            </div>
+        </section>
+
+        <section class="section cyber-panel">
+            <h3 class="label">Do You Wish To Include Any Add-ons?</h3>
+            <div id="addOnsGroup" class="addon-grid grid-2x2">
+            </div>
+        </section>
+
+        <div class="footer-card cyber-hud">
+            <p class="footer-label">TOTAL COST OF THE SELECTED SUBSCRIPTION PACKAGE</p>
+            <div class="price-display debug-text">
+                <span class="currency">$</span><span id="displayPrice" class="neon-green-text">0</span><span class="per-mo">USD</span>
+            </div>
+            <button id="resetButton" class="cyber-reset">[ RESET CALCULATOR ]</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>            </div>
         </section>
 
         <section class="section cyber-panel">
