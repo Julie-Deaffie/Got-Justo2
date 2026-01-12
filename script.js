@@ -9,32 +9,93 @@ document.addEventListener('DOMContentLoaded', () => {
     let state = { product: 'A', duration: 1, iptv: 1, vod: 1, addons: new Set() };
     const ADDON_RATE = 0.50;
 
+    // Pricing logic remains exactly based on your PDF
     const pricing = {
         'A': { base: { 1: 9, 3: 24, 6: 45, 12: 84 }, extra: { 1: 3, 3: 8, 6: 15, 12: 30 }, 
-               addons: [{id:'iptv_a', name:'ADULT'}, {id:'iptv_bw', name:'LOW-BANDWIDTH'}, {id:'iptv_24', name:'24/7 CHANNELS'}]},
+               addons: [{id:'iptv_a', name:'ADULT PROTOCOL'}, {id:'iptv_bw', name:'LOW-BW MODE'}, {id:'iptv_24', name:'24/7 STREAMS'}]},
         'B': { base: { 1: 8, 3: 21, 6: 39, 12: 72 }, extra: { 1: 2.5, 3: 7, 6: 15, 12: 30 },
-               addons: [{id:'vod_a', name:'ADULT'}, {id:'vod_24', name:'24/7 CHANNELS'}]}
+               addons: [{id:'vod_a', name:'ADULT DB'}, {id:'vod_24', name:'24/7 ACCESS'}]}
     };
 
     function renderConnections() {
         connectionContainer.innerHTML = '';
         if (state.product === 'C' || state.product === 'A') {
-            createConnBox('LIVE IPTV', 'iptv', state.iptv);
+            createConnBox('LIVE IPTV NODES', 'iptv', state.iptv);
         }
         if (state.product === 'C' || state.product === 'B') {
-            createConnBox('VIDEO ON DEMAND', 'vod', state.vod);
+            createConnBox('VOD DATA LINKS', 'vod', state.vod);
         }
     }
 
     function createConnBox(title, key, currentVal) {
         const div = document.createElement('div');
         div.className = 'conn-group';
-        div.innerHTML = `<span class="conn-label">${title}</span><div class="bubble-row"></div>`;
+        // Updated labels for digital look
+        div.innerHTML = `<span class="conn-label">>> ${title}</span><div class="bubble-row"></div>`;
         const row = div.querySelector('.bubble-row');
         [1,2,3,4,5].forEach(num => {
             const b = document.createElement('div');
             b.className = `bubble ${num === currentVal ? 'selected' : ''}`;
             b.innerText = num;
+            b.onclick = () => { state[key] = num; renderConnections(); calculate(); };
+            row.appendChild(b);
+        });
+        connectionContainer.appendChild(div);
+    }
+
+    function renderAddons() {
+        addOnsGroup.innerHTML = '';
+        state.addons.clear();
+        const prod = state.product === 'C' ? 'A' : state.product;
+        
+        // Updated class name to match new CSS
+        pricing[prod].addons.forEach(ao => {
+            const btn = document.createElement('button');
+            btn.className = 'btn-cyber-pill'; 
+            btn.innerText = `[ + ] ${ao.name}`;
+            btn.onclick = () => {
+                if (state.addons.has(ao.id)) state.addons.delete(ao.id);
+                else state.addons.add(ao.id);
+                btn.classList.toggle('selected');
+                calculate();
+            };
+            addOnsGroup.appendChild(btn);
+        });
+        calculate();
+    }
+
+    function calculate() {
+        let total = 0;
+        if (state.product === 'A' || state.product === 'C') {
+            const p = pricing['A'];
+            total += p.base[state.duration] + (state.iptv - 1) * p.extra[state.duration];
+            total += state.addons.size * ADDON_RATE * state.iptv * state.duration;
+        }
+        if (state.product === 'B' || state.product === 'C') {
+            const p = pricing['B'];
+            total += p.base[state.duration] + (state.vod - 1) * p.extra[state.duration];
+            if (state.product === 'B') total += state.addons.size * ADDON_RATE * state.vod * state.duration;
+        }
+        displayPriceSpan.innerText = total.toFixed(0);
+    }
+
+    function init() {
+        Array.from(productOptions.children).forEach(b => b.onclick = () => {
+            state.product = b.dataset.product;
+            Array.from(productOptions.children).forEach(x => x.classList.toggle('selected', x === b));
+            renderConnections(); renderAddons();
+        });
+        Array.from(durationOptions.children).forEach(b => b.onclick = () => {
+            state.duration = parseInt(b.dataset.duration);
+            Array.from(durationOptions.children).forEach(x => x.classList.toggle('selected', x === b));
+            renderAddons();
+        });
+        resetButton.onclick = () => { state = { product: 'A', duration: 1, iptv: 1, vod: 1, addons: new Set() }; init(); };
+        productOptions.querySelector('[data-product="A"]').click();
+        durationOptions.querySelector('[data-duration="1"]').click();
+    }
+    init();
+});            b.innerText = num;
             b.onclick = () => { state[key] = num; renderConnections(); calculate(); };
             row.appendChild(b);
         });
