@@ -1,45 +1,42 @@
-<div class="calculator-card">
-    <header class="header">
-        <h1 class="logo-text"><span class="neon-cyan">got</span><span class="neon-magenta">JUSTO?</span></h1>
-        <div class="tagline">IPTV & VOD SYSTEMS // VERSION 4.0</div>
-    </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gotJUSTO? | Subscription Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="HD0492.mp4" type="video/mp4">
+    </video>
 
-    <section class="product-section">
-        <span class="label">// Select System</span>
-        <div id="productOptions" class="stack-row">
-            <button class="btn-cyber" data-product="A">IPTV</button>
-            <button class="btn-cyber" data-product="B">VOD</button>
-            <button class="btn-cyber" data-product="C">BUNDLE</button>
-        </div>
-    </section>
+    <div class="grid-overlay"></div>
 
-    <section class="length-section">
-        <span class="label">// Term Length</span>
-        <div id="durationOptions" class="stack-row">
-            <button class="btn-cyber" data-duration="1">1M</button>
-            <button class="btn-cyber" data-duration="3">3M</button>
-            <button class="btn-cyber" data-duration="6">6M</button>
-            <button class="btn-cyber" data-duration="12">12M</button>
-        </div>
-    </section>
+    <div class="calculator-card">
+        <header class="header">
+            <h1 class="logo-text glitch-hover"><span class="neon-cyan">got</span><span class="neon-magenta">JUSTO?</span></h1>
+            <div class="tagline">IPTV & VOD SYSTEMS // TOTAL CONTROL</div>
+        </header>
 
-    <section class="mid-section">
-        <div id="connectionArea">
-            <span class="label">// Connection Nodes</span>
-            <div id="connectionContainer" class="stack-row"></div>
-        </div>
-        <div id="addonArea">
-            <span class="label">// System Add-ons</span>
-            <div id="addOnsGroup" class="stack-row"></div>
-        </div>
-    </section>
-
-    <footer class="footer-card">
-        <div id="summaryDisplay" class="summary-container">
+        <section class="product-section">
+            <span class="label">// Select System</span>
+            <div id="productOptions" class="stack-row">
+                <button class="btn-cyber" data-product="A">LIVE IPTV</button>
+                <button class="btn-cyber" data-product="B">VOD ONLY</button>
+                <button class="btn-cyber" data-product="C">FULL BUNDLE</button>
             </div>
-        <div class="price-display">
-            <span class="currency">$</span><span id="displayPrice">0.00</span>
-        </div>
-        <div id="resetButton" class="reset-link">[ CLEAR DATA ]</div>
-    </footer>
-</div>
+        </section>
+
+        <section class="length-section">
+            <span class="label">// Term Length</span>
+            <div id="durationOptions" class="stack-row">
+                <button class="btn-cyber" data-duration="1">1M</button>
+                <button class="btn-cyber" data-duration="3">3M</button>
+                <button class="btn-cyber" data-duration="6">6M</button>
+                <button class="btn-cyber" data-duration="12">12M</button>
+            </div>
+        </section>
