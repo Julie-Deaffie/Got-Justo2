@@ -1,48 +1,69 @@
-/* ... existing root and background styles ... */
-
-.tagline {
-    font-size: 0.7em;
-    letter-spacing: 3px;
-    color: var(--accent-cyan);
-    opacity: 0.7;
+:root {
+    --bg-deep: #020205;
+    --card-bg: rgba(7, 7, 20, 0.92);
+    --accent-cyan: #00d2ff;
+    --accent-magenta: #ff0055;
+    --accent-green: #39ff14;
+    --panel-border: rgba(0, 210, 255, 0.2);
+    --font-header: 'Orbitron', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
 }
 
-.summary-container {
-    font-size: 0.75em;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    min-height: 40px; /* Prevents layout jump */
+body, html {
+    margin: 0; padding: 0;
+    height: 100%; width: 100%;
+    overflow: hidden;
+    background-color: var(--bg-deep);
+    font-family: var(--font-mono);
+    display: flex; justify-content: center; align-items: center;
 }
 
-.summary-line {
-    color: var(--accent-magenta);
-    font-weight: bold;
+/* Background Elements */
+#bg-video {
+    position: fixed; top: 50%; left: 50%;
+    min-width: 100%; min-height: 100%;
+    z-index: -3; transform: translate(-50%, -50%);
+    object-fit: cover; filter: brightness(0.3) contrast(1.2);
+    pointer-events: none;
 }
 
-.summary-addons {
-    font-size: 0.9em;
-    color: var(--accent-cyan);
-    opacity: 0.8;
+.grid-overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(var(--panel-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--panel-border) 1px, transparent 1px);
+    background-size: 45px 45px;
+    z-index: -2; pointer-events: none;
+    animation: gridMove 4s linear infinite;
+    opacity: 0.2;
 }
 
-/* Adjusting the Price to fit the summary */
-.price-display {
-    font-size: 3.5em; /* Slightly smaller to accommodate summary */
-    color: var(--accent-green);
-    text-shadow: 0 0 20px var(--accent-green);
-    font-weight: bold;
-    line-height: 1;
+@keyframes gridMove {
+    from { background-position: 0 0; }
+    to { background-position: 0 45px; }
 }
 
-.currency { font-size: 0.4em; vertical-align: top; margin-right: 5px; }
-
-.reset-link {
-    color: var(--accent-magenta);
-    text-decoration: none;
-    font-size: 0.7em;
-    cursor: pointer;
-    margin-top: 10px;
-    letter-spacing: 2px;
+/* Main Container */
+.calculator-card {
+    width: 95%; max-width: 520px;
+    height: 90vh;
+    background: var(--card-bg);
+    border: 1px solid var(--accent-cyan);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(0, 210, 255, 0.05);
+    display: flex; flex-direction: column;
+    overflow: hidden; backdrop-filter: blur(12px);
+    position: relative;
 }
+
+/* Percentage Sections */
+.header { height: 20%; display: flex; flex-direction: column; justify-content: center; text-align: center; border-bottom: 1px solid var(--panel-border); }
+.product-section { height: 12.5%; padding: 10px 25px; border-bottom: 1px solid var(--panel-border); }
+.length-section { height: 12.5%; padding: 10px 25px; border-bottom: 1px solid var(--panel-border); }
+.mid-section { height: 30%; padding: 15px 25px; display: flex; flex-direction: column; gap: 15px; }
+.footer-card { height: 25%; background: rgba(0, 0, 0, 0.5); border-top: 2px solid var(--accent-magenta); display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+/* Components */
+.logo-text { font-family: var(--font-header); font-size: 2.2em; margin: 0; letter-spacing: 2px; }
+.neon-magenta { color: var(--accent-magenta); text-shadow: 0 0 10px var(--accent-magenta); }
+.neon-
