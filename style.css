@@ -387,15 +387,15 @@ body, html {
 }
 
 .footer-card {
-    min-height: 28%;
+    min-height: 14%;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(5, 5, 15, 0.4));
     border-top: 2px solid var(--accent-magenta);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 25px;
-    gap: 18px;
+    padding: 12px;
+    gap: 9px;
     position: relative;
 }
 
@@ -424,6 +424,13 @@ body, html {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+/* Product buttons - always on one row */
+.product-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
 }
 
 /* Duration buttons - 2x2 grid layout */
@@ -654,7 +661,7 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .price-label {
@@ -668,7 +675,7 @@ body, html {
 
 .price-value {
     font-family: var(--font-display);
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 700;
     color: var(--accent-cyan);
     text-shadow: var(--glow-cyan);
@@ -824,16 +831,26 @@ body, html {
     }
     
     .footer-card {
-        padding: 20px;
-        min-height: 26%;
+        padding: 10px;
+        min-height: 13%;
+        gap: 8px;
     }
     
     .price-value {
-        font-size: 2.2em;
+        font-size: 1.8em;
     }
     
     .stack-row {
         gap: 8px;
+    }
+    
+    .product-row {
+        gap: 8px;
+    }
+    
+    .product-row .btn-cyber {
+        flex: 1;
+        min-width: 0;
     }
     
     .duration-grid {
@@ -903,6 +920,17 @@ body, html {
         gap: 8px;
     }
     
+    .product-row {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+    
+    .product-row .btn-cyber {
+        flex: 1;
+        min-width: 0;
+    }
+    
     .duration-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
@@ -952,9 +980,9 @@ body, html {
     }
     
     .footer-card {
-        min-height: 30%;
-        padding: 15px;
-        gap: 12px;
+        min-height: 15%;
+        padding: 8px;
+        gap: 6px;
     }
     
     .price-label {
@@ -962,7 +990,7 @@ body, html {
     }
     
     .price-value {
-        font-size: 2em;
+        font-size: 1.6em;
         letter-spacing: 1px;
     }
     
@@ -1026,12 +1054,13 @@ body, html {
     }
     
     .footer-card {
-        padding: 12px;
-        min-height: 32%;
+        padding: 6px;
+        min-height: 16%;
+        gap: 6px;
     }
     
     .price-value {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
     
     .summary-display {
@@ -1069,12 +1098,13 @@ body, html {
     }
     
     .footer-card {
-        min-height: 25%;
-        padding: 12px 15px;
+        min-height: 12.5%;
+        padding: 6px 8px;
+        gap: 6px;
     }
     
     .price-value {
-        font-size: 1.8em;
+        font-size: 1.4em;
     }
 }
 
@@ -1089,7 +1119,18 @@ body, html {
     }
     
     .price-value {
-        font-size: 1.6em;
+        font-size: 1.3em;
+    }
+    
+    .product-row {
+        gap: 6px;
+    }
+    
+    .product-row .btn-cyber {
+        flex: 1;
+        min-width: 0;
+        font-size: 0.7em;
+        padding: 8px 10px;
     }
     
     .btn-cyber {
