@@ -100,14 +100,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }).filter(Boolean).join(", ");
 
         summaryDisplay.innerHTML = `
-            <div class="summary-line">${state.duration} Month ${pricing[state.product].name}</div>
+            <div class="summary-line">${state.duration} ${state.duration === 1 ? 'Month' : 'Months'} ${pricing[state.product].name}</div>
             <div class="summary-line">${summaryText}</div>
             <div class="summary-addons">${addonList ? "+ " + addonList : "No Add-ons Selected"}</div>
         `;
     }
 
     function renderConnections() {
-        connectionContainer.innerHTML = '';
+        // Clear only dynamically generated content, keep the label
+        let connectionItemsContainer = connectionContainer.querySelector('.connection-items-wrapper');
+        if (!connectionItemsContainer) {
+            connectionItemsContainer = document.createElement('div');
+            connectionItemsContainer.className = 'connection-items-wrapper';
+            connectionContainer.appendChild(connectionItemsContainer);
+        }
+        connectionItemsContainer.innerHTML = '';
         
         if (state.product === 'A' || state.product === 'C') {
             const item = document.createElement('div');
