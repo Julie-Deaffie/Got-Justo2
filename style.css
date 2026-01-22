@@ -713,12 +713,22 @@ body, html {
     font-family: var(--font-mono);
 }
 
+/* Footer Content */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
 /* Price Display */
 .price-display {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start; /* Align to left */
     gap: 4px;
+    flex-shrink: 0;
 }
 
 .price-label {
@@ -751,9 +761,10 @@ body, html {
     font-family: var(--font-mono);
     font-size: 0.75em;
     color: rgba(255, 255, 255, 0.7);
-    text-align: center;
+    text-align: right; /* Align to right */
     line-height: 1.6;
-    max-width: 90%;
+    flex: 1; /* Allow to take available space */
+    max-width: 100%; /* Changed from 90% */
 }
 
 .summary-line {
@@ -765,6 +776,18 @@ body, html {
     margin-top: 8px;
     color: var(--accent-yellow);
     font-size: 0.9em;
+}
+
+/* Reset Card */
+.reset-card {
+    width: 100%;
+    padding: 10px 28px;
+    background: linear-gradient(to bottom, rgba(5, 5, 15, 0.4), rgba(0, 0, 0, 0.6));
+    border-top: 1px solid var(--panel-border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 /* Reset Button */
@@ -888,9 +911,26 @@ body, html {
     }
     
     .footer-card {
-        padding: 10px;
-        min-height: 13%;
-        gap: 8px;
+        padding: 10px 20px;
+        min-height: 10%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .price-display {
+        align-items: center;
+    }
+
+    .summary-display {
+        text-align: center;
+    }
+
+    .reset-card {
+        padding: 10px 20px;
     }
     
     .price-value {
@@ -1055,9 +1095,26 @@ body, html {
     }
     
     .footer-card {
-        min-height: 15%;
-        padding: 8px;
-        gap: 6px;
+        padding: 10px 15px;
+        min-height: 10%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .price-display {
+        align-items: center;
+    }
+
+    .summary-display {
+        text-align: center;
+    }
+
+    .reset-card {
+        padding: 8px 15px;
     }
     
     .price-label {
@@ -1193,9 +1250,26 @@ body, html {
     }
     
     .footer-card {
-        min-height: 12.5%;
-        padding: 6px 8px;
-        gap: 6px;
+        padding: 6px 10px;
+        min-height: 10%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .price-display {
+        align-items: center;
+    }
+
+    .summary-display {
+        text-align: center;
+    }
+
+    .reset-card {
+        padding: 6px 10px;
     }
     
     .price-value {

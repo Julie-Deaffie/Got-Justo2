@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.className = 'connection-item';
             item.style.animationDelay = '0.1s';
             item.innerHTML = `
-                <span>IPTV Connections</span>
+                <span>IPTV Connections (${state.iptv})</span>
                 <div class="connection-controls">
                     <button class="control-btn" data-action="iptv-decrease">−</button>
                     <span class="control-value">${state.iptv}</span>
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             item.className = 'connection-item';
             item.style.animationDelay = '0.2s';
             item.innerHTML = `
-                <span>VOD Connections</span>
+                <span>VOD Connections (${state.vod})</span>
                 <div class="connection-controls">
                     <button class="control-btn" data-action="vod-decrease">−</button>
                     <span class="control-value">${state.vod}</span>
