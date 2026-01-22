@@ -1013,6 +1013,9 @@ body, html {
     
     .addons-group {
         gap: 8px;
+        flex-wrap: nowrap; /* Keep on one row */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding-bottom: 5px; /* Add padding for scrollbar */
     }
     
     .addon-item {
@@ -1020,7 +1023,7 @@ body, html {
         font-size: 0.8em;
         min-width: 100px;
         height: 36px;
-        flex: 0 0 calc(50% - 6px); /* 2 items per row on mobile */
+        flex: 0 0 calc(33.333% - 5.333px); /* 3 items per row, adjusted for 8px gap */
     }
     
     .control-btn {
@@ -1073,6 +1076,9 @@ body, html {
     
     .addons-group {
         gap: 6px;
+        flex-wrap: nowrap; /* Keep on one row */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding-bottom: 5px; /* Add padding for scrollbar */
     }
 
     .addon-item {
@@ -1080,7 +1086,7 @@ body, html {
         font-size: 0.7em;
         min-width: 70px;
         height: 30px;
-        flex: 0 0 calc(50% - 3px); /* 2 items per row on very small mobile */
+        flex: 0 0 calc(33.333% - 4px); /* 3 items per row, adjusted for 6px gap */
     }
 }
 
@@ -1119,10 +1125,9 @@ body, html {
     
     .addons-group {
         gap: 6px;
-    }
-
-    .addons-group .label {
-        margin-bottom: 4px;
+        flex-wrap: nowrap; /* Keep on one row */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        padding-bottom: 5px; /* Add padding for scrollbar */
     }
 
     .addon-item {
@@ -1130,7 +1135,7 @@ body, html {
         font-size: 0.75em;
         min-width: 80px;
         height: 32px;
-        flex: 0 0 calc(50% - 3px); /* 2 items per row on small mobile */
+        flex: 0 0 calc(33.333% - 4px); /* 3 items per row, adjusted for 6px gap */
     }
     
     .footer-card {
