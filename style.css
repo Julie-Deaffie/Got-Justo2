@@ -517,53 +517,58 @@ body, html {
     height: 200%;
 }
 
-/* Connection & Addons Groups */
-.connection-group,
-.addons-group {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-    margin-top: 8px; /* Added margin for separation */
-}
-
+/* Connection Group */
 .connection-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
     margin-bottom: 8px;
 }
 
-.addons-group {
-    margin-top: 8px;
+/* Addons Group Container (for label) */
+.addons-group-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.addons-group .label {
+.addons-group-container .label {
     margin-bottom: 8px;
     display: block;
     width: 100%;
     order: -1; /* Place label at the beginning of the flex container */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
-.connection-item,
-.addon-item {
+/* Addons Group (for buttons) */
+.addons-group {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px;
-    background: rgba(0, 240, 255, 0.03);
-    border: 1px solid var(--panel-border);
-    border-radius: 2px;
-    font-family: var(--font-body);
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.8);
-    animation: slideIn 0.4s ease-out;
+    flex-direction: row; /* Changed to row */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 10px;
     width: 100%;
-    min-height: 44px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 5px; /* Add padding for scrollbar */
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
-.addon-item span {
-    flex: 1;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+.addons-group::-webkit-scrollbar {
+    height: 6px;
+}
+
+.addons-group::-webkit-scrollbar-track {
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.addons-group::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.3);
+    border-radius: 3px;
+}
+
+.addons-group::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.5);
 }
 
 @keyframes slideIn {
@@ -957,13 +962,18 @@ body, html {
         min-height: 0;
     }
     
-    .connection-item,
-    .addons-group {
-        gap: 8px;
+    .connection-item {
+        padding: 10px 12px;
+        font-size: 0.85em;
+        min-height: 40px;
     }
     
-    .addons-group .label {
+    .addons-group-container .label {
         margin-bottom: 6px;
+    }
+    
+    .addons-group {
+        gap: 8px;
     }
     
     .addon-item {
@@ -1017,12 +1027,12 @@ body, html {
     }
     
     .connection-group,
+    .addons-group-container .label {
+        margin-bottom: 4px;
+    }
+    
     .addons-group {
         gap: 6px;
-    }
-
-    .addons-group .label {
-        margin-bottom: 4px;
     }
 
     .addon-item {

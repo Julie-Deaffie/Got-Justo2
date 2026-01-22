@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const productOptions = document.getElementById('productOptions');
     const durationOptions = document.getElementById('durationOptions');
     const connectionContainer = document.getElementById('connectionContainer');
-    const addOnsGroup = document.getElementById('addOnsGroup');
+    const addOnsGroupContainer = document.getElementById('addOnsGroupContainer');
+    const addOnsGroup = document.getElementById('addOnsGroupInner');
     const displayPriceSpan = document.getElementById('displayPrice');
     const summaryDisplay = document.getElementById('summaryDisplay');
     const resetButton = document.getElementById('resetButton');
@@ -197,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const label = document.createElement('span');
         label.className = 'label';
         label.textContent = '// Add-ons';
-        addOnsGroup.appendChild(label);
+        addOnsGroupContainer.appendChild(label);
         
         currentAddons.forEach((addon, index) => {
             const item = document.createElement('div');
