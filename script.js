@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ] 
         },
         'C': { 
-            name: "BUNDLE (IPTV+VOD)" 
+            name: "IPTV & VOD" 
         }
     };
 
