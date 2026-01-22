@@ -158,12 +158,12 @@ body, html {
 .calculator-card {
     width: 95%;
     max-width: 560px;
-    height: 86vh; /* Adjusted for new reset-card */
+    height: 92vh; /* Increased to fill screen since footer is now fixed */
     max-height: 800px;
-    padding: 15px 0; /* Added vertical padding */
+    padding: 15px 0 120px; /* Added bottom padding to account for fixed footer */
     background: var(--card-bg);
     border: 2px solid var(--panel-border-bright);
-    box-shadow: 
+    box-shadow:
         0 0 60px rgba(0, 0, 0, 0.95),
         inset 0 0 30px rgba(0, 240, 255, 0.08),
         0 0 80px rgba(0, 240, 255, 0.15);
@@ -379,17 +379,42 @@ body, html {
 }
 
 .footer-card {
-    min-height: 10%; /* Reduced height */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(5, 5, 15, 0.4));
-    border-top: 2px solid var(--accent-magenta);
+    width: 95%;
+    max-width: 560px;
+    min-height: 80px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(5, 5, 15, 0.6));
+    border: 2px solid var(--accent-magenta);
+    border-radius: 8px;
     display: flex;
-    flex-direction: column; /* Still column for outer footer */
-    justify-content: flex-start; /* Align content to start */
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 12px 28px; /* Adjusted padding */
-    gap: 0; /* No gap for direct children */
-    position: relative;
-    flex-shrink: 0; /* Prevent shrinking */
+    padding: 16px 28px;
+    gap: 12px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) perspective(1000px) rotateX(5deg);
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.8),
+        0 0 60px rgba(255, 0, 110, 0.3),
+        inset 0 0 30px rgba(255, 0, 110, 0.1);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+.footer-card:hover {
+    transform: translateX(-50%) perspective(1000px) rotateX(2deg) translateY(-5px);
+    box-shadow:
+        0 15px 60px rgba(0, 0, 0, 0.9),
+        0 0 80px rgba(255, 0, 110, 0.5),
+        inset 0 0 40px rgba(255, 0, 110, 0.15);
+}
+
+.footer-card:active {
+    transform: translateX(-50%) perspective(1000px) rotateX(8deg) translateY(-2px);
 }
 
 .footer-card::before {
@@ -398,9 +423,10 @@ body, html {
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
+    height: 2px;
     background: linear-gradient(90deg, transparent, var(--accent-magenta), transparent);
-    box-shadow: 0 0 10px var(--accent-magenta);
+    box-shadow: 0 0 20px var(--accent-magenta), 0 0 40px var(--accent-magenta);
+    border-radius: 8px 8px 0 0;
 }
 
 .label {
@@ -882,8 +908,11 @@ body, html {
     }
     
     .footer-card {
-        padding: 10px 20px;
-        min-height: 10%;
+        width: 95%;
+        max-width: 95%;
+        padding: 12px 20px;
+        min-height: 70px;
+        bottom: 15px;
     }
 
     .footer-content {
@@ -1063,8 +1092,11 @@ body, html {
     }
     
     .footer-card {
+        width: 100%;
+        max-width: 100%;
         padding: 10px 15px;
-        min-height: 10%;
+        min-height: 65px;
+        bottom: 10px;
     }
 
     .footer-content {
