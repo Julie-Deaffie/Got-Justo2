@@ -89,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryText += `${state.vod}x VOD Node(s)`;
         }
 
+        // Increase total by 50%
+        total = total * 1.5;
+
         // Animate price update
         const currentPrice = parseFloat(displayPriceSpan.textContent) || 0;
         animateValue(displayPriceSpan, currentPrice, total);
@@ -201,12 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         addOnsGroup.style.display = 'flex';
-        
-        const label = document.createElement('span');
-        label.className = 'label';
-        label.textContent = '// Add-ons';
-        addOnsGroupContainer.appendChild(label);
-        
+
         currentAddons.forEach((addon, index) => {
             const item = document.createElement('div');
             item.className = 'addon-item';
