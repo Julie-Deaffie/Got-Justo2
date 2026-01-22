@@ -368,24 +368,14 @@ body, html {
 
 /* Sections */
 .product-section,
-.length-section {
+.length-section,
+.connection-section, /* Added new section */
+.addons-section /* Added new section */ {
     padding: 18px 28px;
     border-bottom: 1px solid var(--panel-border);
     display: flex;
     flex-direction: column;
     gap: 12px;
-}
-
-.mid-section {
-    flex: 1;
-    padding: 20px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
 }
 
 .footer-card {
@@ -843,22 +833,6 @@ body, html {
 }
 
 /* Scrollbar Styling */
-.mid-section::-webkit-scrollbar {
-    width: 6px;
-}
-
-.mid-section::-webkit-scrollbar-track {
-    background: rgba(0, 240, 255, 0.05);
-}
-
-.mid-section::-webkit-scrollbar-thumb {
-    background: rgba(0, 240, 255, 0.3);
-    border-radius: 3px;
-}
-
-.mid-section::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 240, 255, 0.5);
-}
 
 /* Responsive Design */
 
@@ -901,13 +875,10 @@ body, html {
     }
     
     .product-section,
-    .length-section {
+    .length-section,
+    .connection-section, /* Added new section */
+    .addons-section /* Added new section */ {
         padding: 15px 20px;
-    }
-    
-    .mid-section {
-        padding: 15px 20px;
-        gap: 15px;
     }
     
     .footer-card {
@@ -1001,10 +972,13 @@ body, html {
     }
     
     .product-section,
-    .length-section {
+    .length-section,
+    .connection-section, /* Added new section */
+    .addons-section /* Added new section */ {
         height: auto;
         min-height: auto;
         padding: 12px 15px;
+        gap: 8px; /* Added for consistency */
     }
     
     .label {
@@ -1044,12 +1018,6 @@ body, html {
         min-width: auto;
     }
     
-    .mid-section {
-        padding: 15px;
-        gap: 12px;
-        flex: 1;
-        min-height: 0;
-    }
     
     .connection-item {
         padding: 10px 12px;
@@ -1176,7 +1144,9 @@ body, html {
     }
     
     .product-section,
-    .length-section {
+    .length-section,
+    .connection-section, /* Added new section */
+    .addons-section /* Added new section */ {
         padding: 10px 12px;
     }
     
@@ -1238,15 +1208,13 @@ body, html {
     }
     
     .product-section,
-    .length-section {
+    .length-section,
+    .connection-section, /* Added new section */
+    .addons-section /* Added new section */ {
         height: auto;
         min-height: auto;
         padding: 8px 15px;
-    }
-    
-    .mid-section {
-        padding: 10px 15px;
-        gap: 8px;
+        gap: 8px; /* Added for consistency */
     }
     
     .footer-card {
