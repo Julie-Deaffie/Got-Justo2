@@ -521,9 +521,11 @@ body, html {
 .connection-group,
 .addons-group {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
+    margin-top: 8px; /* Added margin for separation */
 }
 
 .connection-group {
@@ -535,9 +537,10 @@ body, html {
 }
 
 .addons-group .label {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     display: block;
     width: 100%;
+    order: -1; /* Place label at the beginning of the flex container */
 }
 
 .connection-item,
@@ -955,10 +958,19 @@ body, html {
     }
     
     .connection-item,
+    .addons-group {
+        gap: 8px;
+    }
+    
+    .addons-group .label {
+        margin-bottom: 6px;
+    }
+    
     .addon-item {
-        padding: 10px 12px;
-        font-size: 0.85em;
-        min-height: 40px;
+        padding: 8px 12px;
+        font-size: 0.8em;
+        min-width: 100px;
+        height: 36px;
     }
     
     .control-btn {
@@ -1006,7 +1018,18 @@ body, html {
     
     .connection-group,
     .addons-group {
-        gap: 10px;
+        gap: 6px;
+    }
+
+    .addons-group .label {
+        margin-bottom: 4px;
+    }
+
+    .addon-item {
+        padding: 6px 10px;
+        font-size: 0.7em;
+        min-width: 70px;
+        height: 30px;
     }
 }
 
@@ -1043,14 +1066,19 @@ body, html {
         letter-spacing: 1px;
     }
     
-    .mid-section {
-        padding: 12px;
+    .addons-group {
+        gap: 6px;
     }
-    
-    .connection-item,
+
+    .addons-group .label {
+        margin-bottom: 4px;
+    }
+
     .addon-item {
-        padding: 8px 10px;
-        font-size: 0.8em;
+        padding: 6px 10px;
+        font-size: 0.75em;
+        min-width: 80px;
+        height: 32px;
     }
     
     .footer-card {
