@@ -526,6 +526,13 @@ body, html {
     margin-bottom: 8px;
 }
 
+.connection-items-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
 /* Addons Group Container (for label) */
 .addons-group-container {
     display: flex;

@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="control-btn" data-action="iptv-increase">+</button>
                 </div>
             `;
-            connectionContainer.appendChild(item);
+            connectionItemsContainer.appendChild(item);
             
             item.querySelector('[data-action="iptv-decrease"]').addEventListener('click', () => {
                 if (state.iptv > 1) {
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button class="control-btn" data-action="vod-increase">+</button>
                 </div>
             `;
-            connectionContainer.appendChild(item);
+            connectionItemsContainer.appendChild(item);
             
             item.querySelector('[data-action="vod-decrease"]').addEventListener('click', () => {
                 if (state.vod > 1) {
