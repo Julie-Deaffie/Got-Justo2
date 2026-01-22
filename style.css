@@ -272,7 +272,7 @@ body, html {
 
 .logo-text {
     font-family: var(--font-display);
-    font-size: 2.8em;
+    font-size: 4.2em; /* Increased by 50% from 2.8em */
     font-weight: 900;
     margin: 0;
     letter-spacing: 4px;
@@ -814,7 +814,7 @@ body, html {
     }
     
     .logo-text {
-        font-size: 2.2em;
+        font-size: 3.3em; /* Increased by 50% from 2.2em */
         letter-spacing: 3px;
     }
     
@@ -1041,7 +1041,7 @@ body, html {
     }
     
     .logo-text {
-        font-size: 1.5em;
+        font-size: 2.25em; /* Increased by 50% from 1.5em */
         letter-spacing: 1.5px;
     }
     
@@ -1110,7 +1110,7 @@ body, html {
     }
     
     .logo-text {
-        font-size: 1.6em;
+        font-size: 2.4em; /* Increased by 50% from 1.6em */
     }
     
     .product-section,
