@@ -170,11 +170,29 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderAddons() {
         addOnsGroup.innerHTML = '';
         
-        const currentAddons = state.product === 'A' ? pricing.A.addons : 
-                             state.product === 'B' ? pricing.B.addons : 
-                             [...pricing.A.addons, ...pricing.B.addons];
+        let currentAddons = [];
+        if (state.product === 'A') {
+            currentAddons = pricing.A.addons || [];
+        } else if (state.product === 'B') {
+            currentAddons = pricing.B.addons || [];
+        } else if (state.product === 'C') {
+            // For bundle, combine both but filter duplicates
+            const allAddons = [...(pricing.A.addons || []), ...(pricing.B.addons || [])];
+            // Remove duplicates by id
+            const seen = new Set();
+            currentAddons = allAddons.filter(addon => {
+                if (seen.has(addon.id)) return false;
+                seen.add(addon.id);
+                return true;
+            });
+        }
         
-        if (currentAddons.length === 0) return;
+        if (currentAddons.length === 0) {
+            addOnsGroup.style.display = 'none';
+            return;
+        }
+        
+        addOnsGroup.style.display = 'flex';
         
         const label = document.createElement('span');
         label.className = 'label';
@@ -185,13 +203,22 @@ document.addEventListener('DOMContentLoaded', () => {
             const item = document.createElement('div');
             item.className = 'addon-item';
             item.style.animationDelay = `${0.1 * (index + 1)}s`;
-            item.innerHTML = `
-                <span>${addon.name}</span>
-                <input type="checkbox" class="addon-checkbox" data-addon="${addon.id}" ${state.addons.has(addon.id) ? 'checked' : ''}>
-            `;
+            item.style.opacity = '0';
+            item.style.animation = 'slideIn 0.4s ease-out forwards';
+            
+            const labelSpan = document.createElement('span');
+            labelSpan.textContent = addon.name;
+            
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.className = 'addon-checkbox';
+            checkbox.dataset.addon = addon.id;
+            checkbox.checked = state.addons.has(addon.id);
+            
+            item.appendChild(labelSpan);
+            item.appendChild(checkbox);
             addOnsGroup.appendChild(item);
             
-            const checkbox = item.querySelector('.addon-checkbox');
             checkbox.addEventListener('change', (e) => {
                 if (e.target.checked) {
                     state.addons.add(addon.id);
