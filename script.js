@@ -19,15 +19,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const ADDON_RATE = 0.50;
 
     const pricing = {
-        'A': { 
-            base: { 1: 9, 3: 24, 6: 45, 12: 84 }, 
-            extra: { 1: 3, 3: 8, 6: 15, 12: 30 }, 
-            name: "IPTV", 
+        'A': {
+            base: { 1: 9, 3: 24, 6: 45, 12: 84 },
+            extra: { 1: 3, 3: 8, 6: 15, 12: 30 },
+            name: "IPTV",
             addons: [
-                {id:'a1', name:'ADULT'}, 
-                {id:'a2', name:'BW'}, 
+                {id:'a1', name:'ADULT'},
+                {id:'a2', name:'Low Bandwidth'},
                 {id:'a3', name:'24/7'}
-            ] 
+            ]
         },
         'B': { 
             base: { 1: 8, 3: 21, 6: 39, 12: 72 }, 
