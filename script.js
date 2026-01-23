@@ -89,9 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
             summaryText += `${state.vod}x VOD Connection(s)`;
         }
 
-        // Increase total by 50%
-        total = total * 1.5;
-
         // Animate price update
         const currentPrice = parseFloat(displayPriceSpan.textContent) || 0;
         animateValue(displayPriceSpan, currentPrice, total);
