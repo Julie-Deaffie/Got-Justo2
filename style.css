@@ -185,6 +185,7 @@ body, html {
         opacity: 1;
         transform: translateX(-50%) perspective(1000px) rotateX(5deg) translateY(0);
     }
+}
 
 @keyframes cardEntrance {
     from {
