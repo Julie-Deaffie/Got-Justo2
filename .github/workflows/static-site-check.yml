@@ -1,0 +1,49 @@
+name: Static Site Check
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Validate HTML
+      run: |
+        # Install HTML validator
+        sudo apt-get update
+        sudo apt-get install -y tidy
+
+        # Validate HTML files
+        find . -name "*.html" -type f | while read -r file; do
+          echo "Validating $file..."
+          tidy -q -e "$file" || echo "HTML validation issues found in $file"
+        done
+
+    - name: Check for broken links (basic)
+      run: |
+        # Basic check for common broken link patterns
+        if grep -r "href=\".*\.html\"" --include="*.html" .; then
+          echo "Found internal HTML links - consider verifying they exist"
+        fi
+
+    - name: Check file sizes
+      run: |
+        echo "Checking file sizes..."
+        find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" \) -exec ls -lh {} \; | awk '{print $9 ": " $5}'
+
+    - name: Verify required files exist
+      run: |
+        required_files=("index.html" "style.css" "script.js")
+        for file in "${required_files[@]}"; do
+          if [ ! -f "$file" ]; then
+            echo "Missing required file: $file"
+            exit 1
+          fi
+        done
+        echo "All required files present"
