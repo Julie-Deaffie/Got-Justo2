@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const p = pricing['A'];
             total += p.base[state.duration] + (state.iptv - 1) * p.extra[state.duration];
             total += state.addons.size * ADDON_RATE * state.iptv * state.duration;
-            summaryText += `${state.iptv}x IPTV Node(s)`;
+            summaryText += `${state.iptv}x IPTV Connection(s)`;
         }
 
         if (state.product === 'C') summaryText += " + ";
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (state.product === 'B') {
                 total += state.addons.size * ADDON_RATE * state.vod * state.duration;
             }
-            summaryText += `${state.vod}x VOD Node(s)`;
+            summaryText += `${state.vod}x VOD Connection(s)`;
         }
 
         // Increase total by 50%
