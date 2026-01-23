@@ -158,9 +158,9 @@ body, html {
 .calculator-card {
     width: 95%;
     max-width: 560px;
-    height: 92vh; /* Increased to fill screen since footer is now fixed */
-    max-height: 800px;
-    padding: 15px 0 120px; /* Added bottom padding to account for fixed footer */
+    height: auto;
+    max-height: 95vh;
+    padding: 15px 0 15px;
     background: var(--card-bg);
     border: 2px solid var(--panel-border-bright);
     box-shadow:
@@ -169,7 +169,7 @@ body, html {
         0 0 80px rgba(0, 240, 255, 0.15);
     display: flex;
     flex-direction: column;
-    overflow-y: auto; /* Allow scrolling for entire card content */
+    overflow-y: auto;
     overflow-x: hidden;
     backdrop-filter: blur(20px);
     position: relative;
@@ -179,11 +179,11 @@ body, html {
 @keyframes footerEntrance {
     from {
         opacity: 0;
-        transform: translateX(-50%) perspective(1000px) rotateX(15deg) translateY(30px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
-        transform: translateX(-50%) perspective(1000px) rotateX(5deg) translateY(0);
+        transform: translateY(0);
     }
 }
 
@@ -390,43 +390,35 @@ body, html {
 }
 
 .footer-card {
-    width: 95%;
-    max-width: 560px;
+    width: 100%;
     min-height: 80px;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(5, 5, 15, 0.6));
-    border: 2px solid var(--accent-magenta);
-    border-radius: 8px;
+    border-top: 2px solid var(--accent-magenta);
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 16px 28px;
     gap: 12px;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%) perspective(1000px) rotateX(5deg);
+    margin-top: auto;
     box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.8),
+        0 -5px 30px rgba(0, 0, 0, 0.6),
         0 0 60px rgba(255, 0, 110, 0.3),
         inset 0 0 30px rgba(255, 0, 110, 0.1);
     backdrop-filter: blur(20px);
-    z-index: 1000;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: default;
     animation: footerEntrance 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
 }
 
 .footer-card:hover {
-    transform: translateX(-50%) perspective(1000px) rotateX(2deg) translateY(-5px);
     box-shadow:
-        0 15px 60px rgba(0, 0, 0, 0.9),
+        0 -8px 40px rgba(0, 0, 0, 0.7),
         0 0 80px rgba(255, 0, 110, 0.5),
         inset 0 0 40px rgba(255, 0, 110, 0.15);
-}
-
-.footer-card:active {
-    transform: translateX(-50%) perspective(1000px) rotateX(8deg) translateY(-2px);
 }
 
 .footer-card::before {
@@ -953,8 +945,8 @@ body, html {
 @media (max-width: 1024px) {
     .calculator-card {
         max-width: 90%;
-        height: 98vh;
-        padding-bottom: 140px;
+        height: auto;
+        max-height: 95vh;
     }
     
     .header {
@@ -970,8 +962,8 @@ body, html {
 @media (max-width: 768px) {
     .calculator-card {
         max-width: 95%;
-        height: 92vh;
-        padding-bottom: 140px;
+        height: auto;
+        max-height: 95vh;
     }
     
     .header {
@@ -997,11 +989,8 @@ body, html {
     }
     
     .footer-card {
-        width: 95%;
-        max-width: 95%;
         padding: 12px 20px;
         min-height: 70px;
-        bottom: 15px;
     }
 
     .footer-content {
@@ -1066,11 +1055,11 @@ body, html {
     
     .calculator-card {
         width: 100%;
-        height: 100vh;
+        height: auto;
+        min-height: 100vh;
         max-height: none;
         border: none;
         border-radius: 0;
-        padding-bottom: 100px;
     }
     
     .card-glow {
@@ -1191,11 +1180,8 @@ body, html {
     }
     
     .footer-card {
-        width: 100%;
-        max-width: 100%;
         padding: 10px 15px;
         min-height: 65px;
-        bottom: 10px;
     }
 
     .footer-content {
@@ -1317,11 +1303,8 @@ body, html {
     }
     
     .footer-card {
-        width: 100%;
-        max-width: 100%;
         padding: 8px 12px;
         min-height: 60px;
-        bottom: 8px;
         gap: 8px;
     }
     
@@ -1338,9 +1321,9 @@ body, html {
 /* Landscape orientation on mobile */
 @media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
     .calculator-card {
-        height: 100vh;
-        max-height: 100vh;
-        padding-bottom: 90px;
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
     }
     
     .header {
@@ -1363,11 +1346,8 @@ body, html {
     }
     
     .footer-card {
-        width: 95%;
-        max-width: 95%;
         padding: 8px 12px;
         min-height: 55px;
-        bottom: 8px;
     }
 
     .footer-content {
